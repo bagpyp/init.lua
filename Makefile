@@ -5,10 +5,15 @@
 # Default target
 all: test
 
-# Run all tests
+# Run all tests with minimal config (faster, but may have failures)
 test:
 	@echo "Running all tests..."
 	@./tests/run_tests.sh
+
+# Run tests with full config (slower, but more accurate)
+test-full:
+	@echo "Running tests with full configuration..."
+	@./tests/run_tests_full.sh
 
 # Run specific test categories
 test-unit:
