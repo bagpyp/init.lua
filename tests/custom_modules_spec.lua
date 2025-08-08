@@ -50,8 +50,9 @@ describe("Custom Modules", function()
           assert.are_not.equal(initial, after_next)
         end
         
-        -- Cycle back
-        for _ = 1, #run.configs do
+        -- Cycle back to original position
+        -- We need to cycle #configs - 1 more times since we already did one next()
+        for _ = 1, #run.configs - 1 do
           run.next()
         end
         assert.are.equal(initial, run.current_index)
