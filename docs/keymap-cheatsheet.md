@@ -4,191 +4,110 @@
 
 ---
 
-## 🎹 JetBrains IDE Panels (Cmd+Number)
+## 🎹 JetBrains IDE Panels (Space+Number)
 
-| Key | Action | Description |
-|-----|--------|-------------|
-| `⌘1` | File Explorer | Toggle Neo-tree file browser |
-| `⌘2` | Git Status | Show git changes panel |
-| `⌘3` | Run Configs | Show/hide run configurations |
-| `⌘4` | Debugger | Toggle debug UI |
-| `⌘5` | Database | Open database browser |
-| `⌘6` | Services | Docker containers panel |
-| `⌘7` | Structure | Code outline/symbols |
-| `⌘8` | Terminal | Toggle terminal drawer |
+| Key | Action | Description | Icon |
+|-----|--------|-------------|------|
+| `Space+1` | File Explorer | Toggle Neo-tree file browser | 📁 |
+| `Space+2` | Git Status | Show git changes panel | 🔀 |
+| `Space+3` | Run Configs | Show/hide run configurations | ▶️ |
+| `Space+4` | Debugger | Toggle debug UI | 🐛 |
+| `Space+5` | Database | Open database browser | 💾 |
+| `Space+6` | Services | Docker containers panel | 🐳 |
+| `Space+7` | Structure | Code outline/symbols | 🏗️ |
+| `Space+8` | Terminal | Toggle terminal drawer | 💻 |
 
 ## 🔍 Search & Navigation
 
 ### Files & Projects
+| Key | Action | JetBrains Equivalent | Icon |
+|-----|--------|---------------------|------|
+| `Space+ff` | Find Files | Find File | 🔍 |
+| `Space+fp` | Command Palette | Find Action | 🎛️ |
+| `Space+fg` | Search in Files | Find in Path | 🔎 |
+| `Space+fb` | Switch Buffer | Recent Files | 📋 |
+| `Shift+Tab` | Recent Files | Recent Files | 🕐 |
+
+### Symbol Navigation
 | Key | Action | JetBrains Equivalent |
 |-----|--------|---------------------|
-| `⌘P` | Find Files | Find File |
-| `⇧⌘P` | Command Palette | Find Action |
-| `⇧⌘F` | Search in Files | Find in Path |
-| `⌘B` | Switch Buffer | Recent Files |
-| `⇧⇥` | Recent Files | Recent Files |
-| `⌘E` | Recent Files | Recent Files |
+| `gd` | Go to Definition | Cmd+B |
+| `gr` | Go to References | Cmd+Shift+F7 |
+| `gi` | Go to Implementation | Cmd+Alt+B |
+| `K` | Hover Documentation | Cmd+J |
 
-### Code Navigation
-| Key | Action | Description |
-|-----|--------|-------------|
-| `gd` | Go to Definition | Jump to definition |
-| `gD` | Go to Declaration | Jump to declaration |
-| `gr` | Find References | Show all references |
-| `gi` | Go to Implementation | Jump to implementation |
-| `gt` | Go to Type Definition | Jump to type def |
-| `K` | Hover Documentation | Show hover info |
-| `[d` | Previous Diagnostic | Previous error/warning |
-| `]d` | Next Diagnostic | Next error/warning |
+## 🔧 Refactoring
 
-## ♻️ Refactoring
-
-| Key | Action | JetBrains Equivalent |
-|-----|--------|---------------------|
-| `⇧F6` | Rename Symbol | Rename |
-| `F6` | Move File | Move |
-| `⌘⌥N` | Inline Variable | Inline |
-| `M` (visual) | Extract Method | Extract Method |
-| `<leader>re` | Extract Function | Extract Method |
-| `<leader>rv` | Extract Variable | Extract Variable |
-| `<leader>ri` | Inline Variable | Inline |
+| Key | Action | JetBrains Equivalent | Icon |
+|-----|--------|---------------------|------|
+| `Shift+F6` | Rename Symbol | Rename | 🏷️ |
+| `F6` | Move File | Move | 📦 |
+| `Space+ri` | Inline Variable | Inline | 🔗 |
+| `M` (visual) | Extract Method | Extract Method | 🎯 |
 
 ## 🐛 Debugging
 
+### Debug Controls
 | Key | Action | JetBrains Equivalent |
 |-----|--------|---------------------|
-| `F5` | Continue/Start | Resume Program |
+| `F5` | Continue | Continue |
 | `F10` | Step Over | Step Over |
 | `F11` | Step Into | Step Into |
-| `⇧F11` | Step Out | Step Out |
-| `⌘4` | Toggle Debug UI | Debug Tool Window |
-| `<leader>db` | Toggle Breakpoint | Toggle Breakpoint |
-| `<leader>dB` | Conditional Breakpoint | Conditional Breakpoint |
+| `Shift+F11` | Step Out | Step Out |
+| `Space+db` | Toggle Breakpoint | Toggle Breakpoint |
+| `Space+dr` | Toggle Debug UI | Debug Tool Window |
 
 ## 🧪 Testing
 
 | Key | Action | Description |
 |-----|--------|-------------|
-| `<leader>tt` | Run Nearest Test | Run test at cursor |
-| `<leader>tf` | Run File Tests | Run all tests in file |
-| `<leader>td` | Debug Test | Debug test at cursor |
-| `<leader>to` | Test Output | Show test output |
-| `<leader>ts` | Test Summary | Toggle test summary |
+| `Space+tt` | Run Nearest Test | Run test at cursor |
+| `Space+tf` | Run File Tests | Run all tests in file |
+| `Space+to` | Test Output | Show test output |
+| `Space+ts` | Test Summary | Toggle test summary |
 
-## ✏️ Editing
+## 🎯 Multi-cursor & Selection
 
-### Multi-Cursor
-| Key | Action | JetBrains Equivalent |
-|-----|--------|---------------------|
-| `⌃G` | Add Cursor | Add Selection for Next |
-| `⌃↓` | Add Cursor Below | Clone Caret Below |
-| `⌃↑` | Add Cursor Above | Clone Caret Above |
-| `⌥↑` | Expand Selection | Extend Selection |
-| `⌥↓` | Shrink Selection | Shrink Selection |
+| Key | Action | JetBrains Equivalent | Icon |
+|-----|--------|---------------------|------|
+| `Ctrl+G` | Add Cursor | Alt+J | 🎯 |
+| `Ctrl+Up` | Expand Selection | Ctrl+W | 🔼 |
+| `Ctrl+Down` | Shrink Selection | Ctrl+Shift+W | 🔽 |
+| `Shift+Up` | Move Line Up | Shift+Alt+Up | ⬆️ |
+| `Shift+Down` | Move Line Down | Shift+Alt+Down | ⬇️ |
 
-### Text Manipulation
+## 📊 Run Configurations
+
 | Key | Action | Description |
 |-----|--------|-------------|
-| `⇧⌘↑` | Move Line Up | Move line/selection up |
-| `⇧⌘↓` | Move Line Down | Move line/selection down |
-| `gcc` | Toggle Comment | Comment line |
-| `gc` (visual) | Toggle Comment | Comment selection |
-| `ys` | Add Surround | Surround with... |
-| `cs` | Change Surround | Change surrounding |
-| `ds` | Delete Surround | Delete surrounding |
+| `Space+rn` | Next Run Config | Cycle to next config |
+| `Space+rp` | Previous Run Config | Cycle to previous config |
 
-## 📝 Leader Key Mappings
+## 🔄 Git Integration
 
-> Leader key is `Space`. Press `Space` to see all available commands.
+| Key | Action | Description |
+|-----|--------|-------------|
+| `Space+gg` | LazyGit | Full git interface |
+| `Space+gf` | Git Files | Show git files |
+| `Space+gc` | Git Commits | Show commit history |
+| `Space+gb` | Git Branches | Switch branches |
 
-### Files (`<leader>f`)
-| Key | Action |
-|-----|--------|
-| `<leader>ff` | Find files |
-| `<leader>fg` | Live grep |
-| `<leader>fb` | Buffers |
-| `<leader>fr` | Recent files |
-| `<leader>fh` | Help tags |
+## 🖼️ Window Management
 
-### Git (`<leader>g`)
-| Key | Action |
-|-----|--------|
-| `<leader>gg` | LazyGit |
-| `<leader>gs` | Git status |
-| `<leader>gc` | Git commit |
-| `<leader>gp` | Git push |
-| `<leader>gb` | Git branches |
+| Key | Action | Description |
+|-----|--------|-------------|
+| `Ctrl+H` | Left Window | Focus left split |
+| `Ctrl+J` | Down Window | Focus down split |
+| `Ctrl+K` | Up Window | Focus up split |
+| `Ctrl+L` | Right Window | Focus right split |
 
-### LSP (`<leader>l`)
-| Key | Action |
-|-----|--------|
-| `<leader>la` | Code action |
-| `<leader>lr` | Rename |
-| `<leader>lf` | Format |
-| `<leader>ld` | Definition |
-| `<leader>lR` | References |
+## 💡 Tips
 
-### Windows (`<leader>w`)
-| Key | Action |
-|-----|--------|
-| `<leader>w-` | Split below |
-| `<leader>w\|` | Split right |
-| `<leader>wd` | Close window |
-| `<leader>w=` | Equal size |
-
-## 🎮 Vim Motions Quick Reference
-
-### Movement
-| Key | Action |
-|-----|--------|
-| `h/j/k/l` | Left/Down/Up/Right |
-| `w/b` | Next/Previous word |
-| `0/$` | Start/End of line |
-| `gg/G` | Start/End of file |
-| `{/}` | Previous/Next paragraph |
-| `%` | Matching bracket |
-
-### Operators
-| Key | Action | Example |
-|-----|--------|---------|
-| `d` | Delete | `dw` = delete word |
-| `c` | Change | `ciw` = change in word |
-| `y` | Yank (copy) | `yy` = yank line |
-| `v` | Visual select | `viw` = select in word |
-| `>/<` | Indent | `>G` = indent to end |
-
-### Text Objects
-| Object | Meaning | Example |
-|--------|---------|---------|
-| `iw/aw` | In/Around word | `diw` = delete in word |
-| `is/as` | In/Around sentence | `cas` = change around sentence |
-| `ip/ap` | In/Around paragraph | `vip` = select in paragraph |
-| `i"/a"` | In/Around quotes | `ci"` = change in quotes |
-| `i(/a(` | In/Around parens | `da(` = delete around parens |
-| `it/at` | In/Around tags | `cit` = change in HTML tag |
-
-## 🚀 Quick Actions
-
-| Action | Keys |
-|--------|------|
-| Save | `:w` or `⌘S` |
-| Save All | `:wa` |
-| Quit | `:q` |
-| Force Quit | `:q!` |
-| Save & Quit | `:wq` or `ZZ` |
-| Undo | `u` |
-| Redo | `⌃r` |
-| Search | `/pattern` |
-| Replace | `:%s/old/new/g` |
-
-## 💡 Pro Tips
-
-1. **Discovery**: Press `Space` and wait to see available commands
-2. **Which-key**: Press `g` or `[` or `]` and wait for hints
-3. **Command Palette**: Use `⌘⇧P` to search for any command
-4. **Help**: `:help <topic>` or `<leader>fh` to search help
-5. **Repeat**: `.` repeats the last change
-6. **Macros**: `q<letter>` to record, `@<letter>` to play
+1. **Discovery**: Press `Space` to see all available commands with which-key
+2. **Context**: Many commands are context-aware (work differently in different file types)
+3. **Visual**: Most commands work in visual mode too
+4. **F-keys**: Debugging F-keys (F5, F10, F11) work just like JetBrains
+5. **Consistency**: Space+number system mirrors JetBrains panel shortcuts
 
 ---
 

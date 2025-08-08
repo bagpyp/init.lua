@@ -1,0 +1,36 @@
+{
+  "name": "nvim-docs",
+  "version": "1.0.0",
+  "description": "Neovim Configuration Documentation Site",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "node build.js",
+    "start": "npm run build && npm run dev",
+    "test": "jest simple.test.js",
+    "test:all": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "marked": "^11.1.1",
+    "highlight.js": "^11.9.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "*.js",
+      "!coverage/**",
+      "!*.test.js",
+      "!jest.config.js"
+    ]
+  }
+}

@@ -43,30 +43,30 @@
 ### First Steps
 
 - Press `Space` (leader key) to see available commands
-- Press `Cmd+1` to open the file explorer
-- Press `Cmd+P` to find files
-- Press `Shift+Cmd+F` to search in files
-- Press `Cmd+8` to open terminal
+- Press `Space+1` to open the file explorer 📁
+- Press `Space+ff` to find files 🔍
+- Press `Space+fg` to search in files 🔎
+- Press `Space+8` to open terminal 💻
 
 ## 🎨 Core Features
 
-### IDE-Style Panels (Cmd+1-8)
-- **`⌘1`** - File Explorer (Neo-tree)
-- **`⌘2`** - Git Status Panel
-- **`⌘3`** - Run Configurations
-- **`⌘4`** - Debugger UI
-- **`⌘5`** - Database Browser
-- **`⌘6`** - Docker Services
-- **`⌘7`** - Code Structure/Symbols
-- **`⌘8`** - Terminal Drawer
+### IDE-Style Panels (Space+1-8)
+- **`Space+1`** - 📁 File Explorer (Neo-tree)
+- **`Space+2`** - 🔀 Git Status Panel
+- **`Space+3`** - ▶️ Run Configurations
+- **`Space+4`** - 🐛 Debugger UI
+- **`Space+5`** - 💾 Database Browser
+- **`Space+6`** - 🐳 Docker Services
+- **`Space+7`** - 🏗️ Code Structure/Symbols
+- **`Space+8`** - 💻 Terminal Drawer
 
 ### JetBrains-Style Keybindings
-- **`⇧F6`** - Rename symbol
-- **`F6`** - Move file
-- **`⌘⌥N`** - Inline variable
-- **`⌃G`** - Multi-cursor
-- **`⌥↑/↓`** - Expand/shrink selection
-- **`⇧⇥`** - Recent files
+- **`Shift+F6`** - 🏷️ Rename symbol
+- **`F6`** - 📦 Move file
+- **`Space+ri`** - 🔗 Inline variable
+- **`Ctrl+G`** - 🎯 Multi-cursor
+- **`Ctrl+↑/↓`** - 🔼🔽 Expand/shrink selection
+- **`Shift+Tab`** - Recent files
 
 ## 🛠 Installed Plugins
 
@@ -135,7 +135,7 @@
 
 1. **Discovery**: Press `Space` to explore available commands
 2. **Help**: Press `Space f h` to search help documentation
-3. **Commands**: Press `Cmd+Shift+P` for command palette
+3. **Commands**: Press `Space+fp` for command palette
 4. **Updates**: Run `:Lazy` to update plugins
 
 ## 🔄 Customization
@@ -162,12 +162,46 @@ return {
 ### Modifying Options
 Edit `lua/config/options.lua` to change Neovim settings.
 
+## 🧪 Testing & Validation
+
+### Comprehensive Test Suite
+This configuration includes a **100% passing test suite** with 41 tests:
+
+```bash
+# Run all tests (should always pass)
+make test
+
+# Expected output:
+# ✅ 41 tests passing (100% pass rate)
+# ✅ ALL TESTS PASSED!
+```
+
+### Performance Validation
+```bash
+# Check startup time (~42ms target)
+make startup-time
+
+# Health check
+make health
+```
+
+### Test Coverage
+- ✅ Environment validation (4 tests)
+- ✅ Configuration files (4 tests) 
+- ✅ Core functionality (5 tests)
+- ✅ Plugin system (4 tests)
+- ✅ JetBrains features (8 tests)
+- ✅ Performance & integration (16 tests)
+
+📖 **[Complete Testing Guide →](docs/testing-guide.md)**
+
 ## 🆘 Troubleshooting
 
 - **Plugins not loading**: Run `:Lazy sync`
 - **LSP not working**: Run `:Mason` and install servers
 - **Keybindings not working**: Check `:checkhealth`
 - **Performance issues**: Disable unused plugins in `lua/config/lazy.lua`
+- **Tests failing**: Run `make clean && make test` (very rare)
 
 ## 📝 License
 

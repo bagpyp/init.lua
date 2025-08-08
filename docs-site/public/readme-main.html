@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 JetBrains-Style Neovim Configuration - Neovim Config Docs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      grid-template-areas: "sidebar main";
+      gap: 30px;
+      align-items: start;
+    }
+    
+    nav {
+      grid-area: sidebar;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      padding: 20px;
+      height: fit-content;
+      position: sticky;
+      top: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      min-width: 0; /* Prevent overflow issues */
+    }
+    
+    nav h2 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+    
+    nav ul {
+      list-style: none;
+    }
+    
+    nav li {
+      margin: 8px 0;
+    }
+    
+    nav a {
+      color: #555;
+      text-decoration: none;
+      padding: 8px 12px;
+      display: block;
+      border-radius: 6px;
+      transition: all 0.3s;
+    }
+    
+    nav a:hover {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      transform: translateX(5px);
+    }
+    
+    nav a.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    main {
+      grid-area: main;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      min-width: 0; /* Prevent overflow issues */
+      overflow-wrap: break-word;
+    }
+    
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    h2 {
+      color: #444;
+      margin: 30px 0 15px;
+      font-size: 1.8em;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+    }
+    
+    h3 {
+      color: #555;
+      margin: 25px 0 12px;
+      font-size: 1.4em;
+    }
+    
+    h4 {
+      color: #666;
+      margin: 20px 0 10px;
+      font-size: 1.2em;
+    }
+    
+    p {
+      color: #555;
+      margin: 15px 0;
+    }
+    
+    pre {
+      background: #1e1e1e;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+      border: 1px solid #333;
+    }
+    
+    code {
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+      font-size: 0.9em;
+    }
+    
+    :not(pre) > code {
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #d73a49;
+    }
+    
+    ul, ol {
+      margin: 15px 0;
+      padding-left: 30px;
+      color: #555;
+    }
+    
+    li {
+      margin: 8px 0;
+    }
+    
+    a {
+      color: #667eea;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    
+    a:hover {
+      border-bottom-color: #667eea;
+    }
+    
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding-left: 20px;
+      margin: 20px 0;
+      color: #666;
+      font-style: italic;
+      background: #f8f8f8;
+      padding: 15px 20px;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    
+    th {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    .home-hero {
+      text-align: center;
+      padding: 40px 0;
+      border-bottom: 2px solid #e0e0e0;
+      margin-bottom: 30px;
+    }
+    
+    .home-hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    
+    .home-hero p {
+      font-size: 1.2em;
+      color: #666;
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .feature-card {
+      background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #667eea30;
+    }
+    
+    .feature-card h3 {
+      color: #667eea;
+      margin-bottom: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+          "sidebar"
+          "main";
+      }
+      
+      nav {
+        position: static;
+        grid-area: sidebar;
+      }
+      
+      main {
+        grid-area: main;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      
+  <h2>📚 Documentation</h2>
+  <ul>
+    <li><a href="index.html">Home</a></li><li><a href="readme-main.html">🚀 JetBrains-Style Neovim Configuration</a></li><li><a href="testing-guide.html">🧪 Complete Testing Guide</a></li><li><a href="claude.html">CLAUDE.md - AI Assistant Instructions</a></li><li><a href="jetbrains-shortcuts.html">🚀 JetBrains-Style Shortcuts (Space + Number System)</a></li><li><a href="run.html">🚀 RUN.md - How to Use This Neovim Configuration</a></li><li><a href="shortcut-migration.html">🔄 Shortcut Migration Complete!</a></li><li><a href="keymap-cheatsheet.html">🔑 Keymap Cheatsheet</a></li><li><a href="learning-vim.html">🎓 Learning Vim: From JetBrains to Neovim</a></li><li><a href="overview.html">📘 Overview: JetBrains Parity in Neovim</a></li><li><a href="test-explanation.html">✅ Test Suite: Always Passing</a></li><li><a href="docs-workflows-debugging.html">🐛 Debugging Workflow with nvim-dap</a></li><li><a href="docs-workflows-multicursor.html">🎯 Multi-cursor Workflow</a></li><li><a href="docs-workflows-refactoring.html">♻️ Refactoring Workflow</a></li><li><a href="docs-workflows-services.html">🐳 Services & Docker Workflow</a></li><li><a href="docs-workflows-structure.html">🏗 Code Structure & Symbol Navigation</a></li><li><a href="docs-workflows-testing.html">🧪 Testing Workflow with Neotest</a></li><li><a href="test-readme.html">🧪 Test Suite Documentation</a></li><li><a href="vim-game-readme.html">🎮 VimGame - Interactive Neovim Learning Framework</a></li><li><a href="vim-game-todo.html">VimGame Development TODO</a></li><li><a href="vim-game-vimgame-ready.html">🎮 VimGame is Ready! </a></li><li><a href="vim-game-specs-architecture.html">VimGame Architecture Specification</a></li>
+  </ul>
+
+    </nav>
+    <main>
+      <h1>🚀 JetBrains-Style Neovim Configuration</h1>
+<blockquote>
+<p>A complete Neovim setup that brings the power and familiarity of JetBrains IDEs to the efficiency of Vim</p>
+</blockquote>
+<h2>📚 Documentation Navigation</h2>
+<ol>
+<li><strong><a href="docs/overview.md">Overview</a></strong> - Purpose and architecture</li>
+<li><strong><a href="docs/keymap-cheatsheet.md">Keymap Cheatsheet</a></strong> - Complete keybinding reference</li>
+<li><strong><a href="docs/workflows/testing.md">Testing Workflow</a></strong> - Using Neotest effectively</li>
+<li><strong><a href="docs/workflows/debugging.md">Debugging Workflow</a></strong> - DAP setup and usage</li>
+<li><strong><a href="docs/workflows/refactoring.md">Refactoring Workflow</a></strong> - Code refactoring tools</li>
+<li><strong><a href="docs/workflows/multicursor.md">Multi-cursor Workflow</a></strong> - Multiple cursor editing</li>
+<li><strong><a href="docs/workflows/services.md">Services &amp; Docker</a></strong> - Container management</li>
+<li><strong><a href="docs/workflows/structure.md">Code Structure</a></strong> - Symbol navigation</li>
+<li><strong><a href="docs/learning-vim.md">Learning Vim</a></strong> - Vim motions and tips</li>
+</ol>
+<h2>🎯 Quick Start</h2>
+<h3>Installation</h3>
+<ol>
+<li><p><strong>Backup your existing config</strong> (if any):</p>
+<pre><code class="language-bash">mv ~/.config/nvim ~/.config/nvim.backup
+</code></pre>
+</li>
+<li><p><strong>Clone this configuration</strong>:</p>
+<pre><code class="language-bash">git clone &lt;your-repo&gt; ~/.config/nvim
+</code></pre>
+</li>
+<li><p><strong>Open Neovim</strong>:</p>
+<pre><code class="language-bash">nvim
+</code></pre>
+<p>LazyVim will automatically install all plugins on first launch.</p>
+</li>
+<li><p><strong>Install Language Servers</strong>:</p>
+<pre><code class="language-vim">:Mason
+</code></pre>
+<p>Press <code>i</code> on any language server to install it.</p>
+</li>
+</ol>
+<h3>First Steps</h3>
+<ul>
+<li>Press <code>Space</code> (leader key) to see available commands</li>
+<li>Press <code>Space+1</code> to open the file explorer 📁</li>
+<li>Press <code>Space+ff</code> to find files 🔍</li>
+<li>Press <code>Space+fg</code> to search in files 🔎</li>
+<li>Press <code>Space+8</code> to open terminal 💻</li>
+</ul>
+<h2>🎨 Core Features</h2>
+<h3>IDE-Style Panels (Space+1-8)</h3>
+<ul>
+<li><strong><code>Space+1</code></strong> - 📁 File Explorer (Neo-tree)</li>
+<li><strong><code>Space+2</code></strong> - 🔀 Git Status Panel</li>
+<li><strong><code>Space+3</code></strong> - ▶️ Run Configurations</li>
+<li><strong><code>Space+4</code></strong> - 🐛 Debugger UI</li>
+<li><strong><code>Space+5</code></strong> - 💾 Database Browser</li>
+<li><strong><code>Space+6</code></strong> - 🐳 Docker Services</li>
+<li><strong><code>Space+7</code></strong> - 🏗️ Code Structure/Symbols</li>
+<li><strong><code>Space+8</code></strong> - 💻 Terminal Drawer</li>
+</ul>
+<h3>JetBrains-Style Keybindings</h3>
+<ul>
+<li><strong><code>Shift+F6</code></strong> - 🏷️ Rename symbol</li>
+<li><strong><code>F6</code></strong> - 📦 Move file</li>
+<li><strong><code>Space+ri</code></strong> - 🔗 Inline variable</li>
+<li><strong><code>Ctrl+G</code></strong> - 🎯 Multi-cursor</li>
+<li><strong><code>Ctrl+↑/↓</code></strong> - 🔼🔽 Expand/shrink selection</li>
+<li><strong><code>Shift+Tab</code></strong> - Recent files</li>
+</ul>
+<h2>🛠 Installed Plugins</h2>
+<h3>Core</h3>
+<ul>
+<li><strong>LazyVim</strong> - Base configuration</li>
+<li><strong>Telescope</strong> - Fuzzy finding</li>
+<li><strong>Neo-tree</strong> - File explorer</li>
+<li><strong>Which-key</strong> - Keybinding discovery</li>
+</ul>
+<h3>Development</h3>
+<ul>
+<li><strong>nvim-lspconfig</strong> - Language server protocol</li>
+<li><strong>nvim-cmp</strong> - Autocompletion</li>
+<li><strong>Treesitter</strong> - Syntax highlighting</li>
+<li><strong>nvim-dap</strong> - Debugging</li>
+</ul>
+<h3>Testing &amp; Debugging</h3>
+<ul>
+<li><strong>Neotest</strong> - Test runner</li>
+<li><strong>nvim-dap-ui</strong> - Debug interface</li>
+</ul>
+<h3>Git Integration</h3>
+<ul>
+<li><strong>Gitsigns</strong> - Git decorations</li>
+<li><strong>Fugitive</strong> - Git commands</li>
+<li><strong>Diffview</strong> - Diff viewer</li>
+<li><strong>LazyGit</strong> - Git UI</li>
+</ul>
+<h3>Editing</h3>
+<ul>
+<li><strong>vim-visual-multi</strong> - Multiple cursors</li>
+<li><strong>nvim-surround</strong> - Surround text</li>
+<li><strong>Comment.nvim</strong> - Commenting</li>
+<li><strong>nvim-autopairs</strong> - Auto-close brackets</li>
+</ul>
+<h2>🔧 Configuration Structure</h2>
+<pre><code>~/.config/nvim/
+├── init.lua                    # Entry point
+├── lua/
+│   ├── config/
+│   │   ├── lazy.lua           # Plugin manager setup
+│   │   ├── options.lua        # Neovim options
+│   │   ├── keymaps.lua        # Key mappings
+│   │   ├── autocmds.lua       # Auto commands
+│   │   ├── run.lua            # Run configurations
+│   │   └── docker.lua         # Docker services
+│   └── plugins/
+│       ├── jetbrains.lua      # JetBrains-style features
+│       ├── lsp.lua            # Language servers
+│       ├── ui.lua             # UI enhancements
+│       ├── telescope.lua      # Fuzzy finder
+│       ├── treesitter.lua     # Syntax highlighting
+│       ├── git.lua            # Git integration
+│       └── which-key-enhanced.lua  # Keybinding hints
+└── docs/                       # Documentation
+    ├── overview.md
+    ├── keymap-cheatsheet.md
+    └── workflows/
+        ├── testing.md
+        ├── debugging.md
+        ├── refactoring.md
+        ├── multicursor.md
+        ├── services.md
+        └── structure.md
+</code></pre>
+<h2>💡 Tips</h2>
+<ol>
+<li><strong>Discovery</strong>: Press <code>Space</code> to explore available commands</li>
+<li><strong>Help</strong>: Press <code>Space f h</code> to search help documentation</li>
+<li><strong>Commands</strong>: Press <code>Space+fp</code> for command palette</li>
+<li><strong>Updates</strong>: Run <code>:Lazy</code> to update plugins</li>
+</ol>
+<h2>🔄 Customization</h2>
+<h3>Adding Custom Keybindings</h3>
+<p>Edit <code>lua/config/keymaps.lua</code>:</p>
+<pre><code class="language-lua">vim.keymap.set(&quot;n&quot;, &quot;&lt;your-key&gt;&quot;, &quot;&lt;your-command&gt;&quot;, { desc = &quot;Description&quot; })
+</code></pre>
+<h3>Adding Plugins</h3>
+<p>Create a new file in <code>lua/plugins/</code>:</p>
+<pre><code class="language-lua">return {
+  {
+    &quot;plugin/name&quot;,
+    config = function()
+      -- configuration
+    end,
+  },
+}
+</code></pre>
+<h3>Modifying Options</h3>
+<p>Edit <code>lua/config/options.lua</code> to change Neovim settings.</p>
+<h2>🧪 Testing &amp; Validation</h2>
+<h3>Comprehensive Test Suite</h3>
+<p>This configuration includes a <strong>100% passing test suite</strong> with 41 tests:</p>
+<pre><code class="language-bash"># Run all tests (should always pass)
+make test
+
+# Expected output:
+# ✅ 41 tests passing (100% pass rate)
+# ✅ ALL TESTS PASSED!
+</code></pre>
+<h3>Performance Validation</h3>
+<pre><code class="language-bash"># Check startup time (~42ms target)
+make startup-time
+
+# Health check
+make health
+</code></pre>
+<h3>Test Coverage</h3>
+<ul>
+<li>✅ Environment validation (4 tests)</li>
+<li>✅ Configuration files (4 tests) </li>
+<li>✅ Core functionality (5 tests)</li>
+<li>✅ Plugin system (4 tests)</li>
+<li>✅ JetBrains features (8 tests)</li>
+<li>✅ Performance &amp; integration (16 tests)</li>
+</ul>
+<p>📖 <strong><a href="docs/testing-guide.md">Complete Testing Guide →</a></strong></p>
+<h2>🆘 Troubleshooting</h2>
+<ul>
+<li><strong>Plugins not loading</strong>: Run <code>:Lazy sync</code></li>
+<li><strong>LSP not working</strong>: Run <code>:Mason</code> and install servers</li>
+<li><strong>Keybindings not working</strong>: Check <code>:checkhealth</code></li>
+<li><strong>Performance issues</strong>: Disable unused plugins in <code>lua/config/lazy.lua</code></li>
+<li><strong>Tests failing</strong>: Run <code>make clean &amp;&amp; make test</code> (very rare)</li>
+</ul>
+<h2>📝 License</h2>
+<p>This configuration is provided as-is for personal use.</p>
+<hr>
+<p><strong><a href="docs/overview.md">Next: Overview →</a></strong></p>
+
+    </main>
+  </div>
+</body>
+</html>

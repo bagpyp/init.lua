@@ -38,7 +38,7 @@ Each plugin is chosen for a specific JetBrains feature:
 | Refactoring | refactoring.nvim | Extract/inline operations |
 | Multiple Cursors | vim-visual-multi | True multi-cursor editing |
 
-## 🎮 Panel System (Cmd+1-8)
+## 🎮 Panel System (Space+1-8)
 
 The configuration implements JetBrains' panel system:
 
@@ -47,30 +47,30 @@ The configuration implements JetBrains' panel system:
 ┌─────────────────────────────────────────────┐
 │  Tabs (Bufferline)                          │
 ├────────┬────────────────────────┬───────────┤
-│ ⌘1     │                        │ ⌘7        │
+│ Sp+1   │                        │ Sp+7      │
 │ File   │    Main Editor         │ Structure │
 │ Tree   │                        │           │
 │        │                        │           │
 ├────────┴────────────────────────┴───────────┤
-│ ⌘8 Terminal / ⌘4 Debug / ⌘3 Run            │
+│ Sp+8 Terminal / Sp+4 Debug / Sp+3 Run      │
 └─────────────────────────────────────────────┘
 ```
 
-### Panel Keybindings
-- **Toggle Behavior**: Each Cmd+Number toggles its panel
+### Panel Keybindings  
+- **Toggle Behavior**: Each Space+Number toggles its panel
 - **Focus Behavior**: If open, focuses the panel
 - **Persistent State**: Panels remember their state
 
 ## 🔄 Workflow Integration
 
 ### Development Cycle
-1. **Navigate** (`⌘1`) - Browse project structure
-2. **Search** (`⌘P`, `⇧⌘F`) - Find files and text
+1. **Navigate** (`Space+1`) - Browse project structure
+2. **Search** (`Space+ff`, `Space+fg`) - Find files and text
 3. **Edit** (Vim motions + multi-cursor)
 4. **Refactor** (`⇧F6`, extract/inline)
 5. **Test** (`<leader>tt`) - Run tests
-6. **Debug** (`⌘4`, `F5-F11`) - Step through code
-7. **Commit** (`⌘2`, `<leader>gg`) - Version control
+6. **Debug** (`Space+4`, `F5-F11`) - Step through code
+7. **Commit** (`Space+2`, `<leader>gg`) - Version control
 
 ### Language Server Protocol (LSP)
 

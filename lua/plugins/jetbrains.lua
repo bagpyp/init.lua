@@ -425,16 +425,23 @@ return {
         },
       })
 
-      -- Register mappings
+      -- Register JetBrains-style Panel System mappings
       wk.register({
-        ["<D-1>"] = "File Explorer",
-        ["<D-2>"] = "Git Status",
-        ["<D-3>"] = "Run Configs",
-        ["<D-4>"] = "Debugger",
-        ["<D-5>"] = "Database",
-        ["<D-6>"] = "Services (Docker)",
-        ["<D-7>"] = "Structure Sidebar",
-        ["<D-8>"] = "Terminal Drawer",
+        ["<leader>1"] = "📁 File Explorer",
+        ["<leader>2"] = "🔀 Git Status", 
+        ["<leader>3"] = "▶️ Run Configs",
+        ["<leader>4"] = "🐛 Debugger",
+        ["<leader>5"] = "💾 Database",
+        ["<leader>6"] = "🐳 Services (Docker)",
+        ["<leader>7"] = "🏗️ Structure",
+        ["<leader>8"] = "💻 Terminal",
+        ["<leader>f"] = {
+          name = "+Find",
+          f = "🔍 Find Files",
+          p = "🎛️ Command Palette", 
+          g = "🔎 Search in Files",
+          b = "📋 Switch Buffer",
+        },
         ["<leader>t"] = {
           name = "+Tests",
           t = "Run Nearest",
@@ -449,11 +456,10 @@ return {
           r = "Toggle UI",
         },
         ["<leader>r"] = {
-          name = "+Refactor",
-          n = "Rename Symbol (⇧F6)",
-          i = "Inline Variable (⌘⌥N)",
-          m = "Extract Method (M)",
-          f = "Move File (F6)",
+          name = "+Refactor & Run",
+          n = "Next Run Config",
+          p = "Previous Run Config", 
+          i = "🔗 Inline Variable",
         },
         ["<leader>g"] = {
           name = "+Git",

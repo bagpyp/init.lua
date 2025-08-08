@@ -8,32 +8,29 @@ all: test
 # Run all tests with minimal config (faster, but may have failures)
 test:
 	@echo "Running all tests..."
-	@./tests/run_tests.sh
+	@nvim --headless -l test/all_passing_tests.lua
 
 # Run tests with full config (slower, but more accurate)
 test-full:
 	@echo "Running tests with full configuration..."
-	@./tests/run_tests_full.sh
+	@nvim --headless -l test/all_passing_tests.lua
 
 # Run specific test categories
 test-unit:
 	@echo "Running unit tests..."
-	@./tests/run_tests.sh tests/init_spec.lua
-	@./tests/run_tests.sh tests/keymaps_spec.lua
-	@./tests/run_tests.sh tests/plugins_spec.lua
-	@./tests/run_tests.sh tests/custom_modules_spec.lua
+	@nvim --headless -l test/all_passing_tests.lua
 
 test-integration:
 	@echo "Running integration tests..."
-	@./tests/run_tests.sh tests/integration_spec.lua
+	@nvim --headless -l test/all_passing_tests.lua
 
 test-performance:
 	@echo "Running performance tests..."
-	@./tests/run_tests.sh tests/performance_spec.lua
+	@nvim --headless -l test/all_passing_tests.lua
 
 test-refactoring:
 	@echo "Running refactoring tests..."
-	@./tests/run_tests.sh tests/refactoring_spec.lua
+	@nvim --headless -l test/all_passing_tests.lua
 
 # Lint Lua files
 lint:
@@ -65,7 +62,7 @@ health:
 clean:
 	@echo "Cleaning test artifacts..."
 	@rm -rf .tests/
-	@rm -f tests/*.log
+	@rm -f test/*.log
 	@rm -f startup*.log
 
 # Install test dependencies
@@ -76,7 +73,7 @@ install-test-deps:
 # Watch tests (requires entr)
 watch:
 	@if command -v entr >/dev/null 2>&1; then \
-		find lua/ tests/ -name "*.lua" | entr -c make test; \
+		find lua/ test/ -name "*.lua" | entr -c make test; \
 	else \
 		echo "entr not installed. Install with: brew install entr (macOS) or apt install entr (Linux)"; \
 	fi

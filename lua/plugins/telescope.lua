@@ -186,9 +186,8 @@ return {
           },
           project = {
             base_dirs = {
-              "~/projects",
-              "~/work",
-              { "~/dev", max_depth = 2 },
+              "~/.config/nvim", -- Your actual project!
+              "~/", -- Home directory
             },
             hidden_files = true,
             theme = "dropdown",

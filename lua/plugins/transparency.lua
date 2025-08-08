@@ -25,7 +25,7 @@ return {
         lualine_bold = false,
         
         on_highlights = function(hl, c)
-          -- Make various UI elements transparent
+          -- Make various UI elements transparent but preserve syntax highlighting
           hl.Normal = { bg = "NONE", ctermbg = "NONE" }
           hl.NormalNC = { bg = "NONE", ctermbg = "NONE" }
           hl.NormalFloat = { bg = "NONE", ctermbg = "NONE" }
@@ -40,6 +40,20 @@ return {
           hl.StatusLineNC = { bg = "NONE", ctermbg = "NONE" }
           hl.VertSplit = { bg = "NONE", ctermbg = "NONE" }
           hl.WinSeparator = { bg = "NONE", ctermbg = "NONE" }
+          
+          -- Ensure syntax highlighting colors are visible with transparency
+          -- Adjust brightness for better contrast against transparent background
+          hl.Comment = { fg = c.dark3, italic = true }
+          hl.String = { fg = c.green }
+          hl.Number = { fg = c.orange }
+          hl.Boolean = { fg = c.orange }
+          hl.Function = { fg = c.blue }
+          hl.Keyword = { fg = c.purple, italic = true }
+          hl.Type = { fg = c.blue1 }
+          hl.Operator = { fg = c.blue5 }
+          hl.Identifier = { fg = c.red }
+          hl.Constant = { fg = c.orange }
+          hl.PreProc = { fg = c.cyan }
         end,
       })
       vim.cmd([[colorscheme tokyonight]])

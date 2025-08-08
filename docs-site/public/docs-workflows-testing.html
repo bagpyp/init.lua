@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧪 Testing Workflow with Neotest - Neovim Config Docs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      grid-template-areas: "sidebar main";
+      gap: 30px;
+      align-items: start;
+    }
+    
+    nav {
+      grid-area: sidebar;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      padding: 20px;
+      height: fit-content;
+      position: sticky;
+      top: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      min-width: 0; /* Prevent overflow issues */
+    }
+    
+    nav h2 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+    
+    nav ul {
+      list-style: none;
+    }
+    
+    nav li {
+      margin: 8px 0;
+    }
+    
+    nav a {
+      color: #555;
+      text-decoration: none;
+      padding: 8px 12px;
+      display: block;
+      border-radius: 6px;
+      transition: all 0.3s;
+    }
+    
+    nav a:hover {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      transform: translateX(5px);
+    }
+    
+    nav a.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    main {
+      grid-area: main;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      min-width: 0; /* Prevent overflow issues */
+      overflow-wrap: break-word;
+    }
+    
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    h2 {
+      color: #444;
+      margin: 30px 0 15px;
+      font-size: 1.8em;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+    }
+    
+    h3 {
+      color: #555;
+      margin: 25px 0 12px;
+      font-size: 1.4em;
+    }
+    
+    h4 {
+      color: #666;
+      margin: 20px 0 10px;
+      font-size: 1.2em;
+    }
+    
+    p {
+      color: #555;
+      margin: 15px 0;
+    }
+    
+    pre {
+      background: #1e1e1e;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+      border: 1px solid #333;
+    }
+    
+    code {
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+      font-size: 0.9em;
+    }
+    
+    :not(pre) > code {
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #d73a49;
+    }
+    
+    ul, ol {
+      margin: 15px 0;
+      padding-left: 30px;
+      color: #555;
+    }
+    
+    li {
+      margin: 8px 0;
+    }
+    
+    a {
+      color: #667eea;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    
+    a:hover {
+      border-bottom-color: #667eea;
+    }
+    
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding-left: 20px;
+      margin: 20px 0;
+      color: #666;
+      font-style: italic;
+      background: #f8f8f8;
+      padding: 15px 20px;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    
+    th {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    .home-hero {
+      text-align: center;
+      padding: 40px 0;
+      border-bottom: 2px solid #e0e0e0;
+      margin-bottom: 30px;
+    }
+    
+    .home-hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    
+    .home-hero p {
+      font-size: 1.2em;
+      color: #666;
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .feature-card {
+      background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #667eea30;
+    }
+    
+    .feature-card h3 {
+      color: #667eea;
+      margin-bottom: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+          "sidebar"
+          "main";
+      }
+      
+      nav {
+        position: static;
+        grid-area: sidebar;
+      }
+      
+      main {
+        grid-area: main;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      
+  <h2>📚 Documentation</h2>
+  <ul>
+    <li><a href="index.html">Home</a></li><li><a href="readme-main.html">🚀 JetBrains-Style Neovim Configuration</a></li><li><a href="testing-guide.html">🧪 Complete Testing Guide</a></li><li><a href="claude.html">CLAUDE.md - AI Assistant Instructions</a></li><li><a href="jetbrains-shortcuts.html">🚀 JetBrains-Style Shortcuts (Space + Number System)</a></li><li><a href="run.html">🚀 RUN.md - How to Use This Neovim Configuration</a></li><li><a href="shortcut-migration.html">🔄 Shortcut Migration Complete!</a></li><li><a href="keymap-cheatsheet.html">🔑 Keymap Cheatsheet</a></li><li><a href="learning-vim.html">🎓 Learning Vim: From JetBrains to Neovim</a></li><li><a href="overview.html">📘 Overview: JetBrains Parity in Neovim</a></li><li><a href="test-explanation.html">✅ Test Suite: Always Passing</a></li><li><a href="docs-workflows-debugging.html">🐛 Debugging Workflow with nvim-dap</a></li><li><a href="docs-workflows-multicursor.html">🎯 Multi-cursor Workflow</a></li><li><a href="docs-workflows-refactoring.html">♻️ Refactoring Workflow</a></li><li><a href="docs-workflows-services.html">🐳 Services & Docker Workflow</a></li><li><a href="docs-workflows-structure.html">🏗 Code Structure & Symbol Navigation</a></li><li><a href="docs-workflows-testing.html">🧪 Testing Workflow with Neotest</a></li><li><a href="test-readme.html">🧪 Test Suite Documentation</a></li><li><a href="vim-game-readme.html">🎮 VimGame - Interactive Neovim Learning Framework</a></li><li><a href="vim-game-todo.html">VimGame Development TODO</a></li><li><a href="vim-game-vimgame-ready.html">🎮 VimGame is Ready! </a></li><li><a href="vim-game-specs-architecture.html">VimGame Architecture Specification</a></li>
+  </ul>
+
+    </nav>
+    <main>
+      <h1>🧪 Testing Workflow with Neotest</h1>
+<p><strong><a href="../keymap-cheatsheet.md">← Previous: Keymap Cheatsheet</a></strong> | <strong><a href="debugging.md">Next: Debugging Workflow →</a></strong></p>
+<hr>
+<h2>Overview</h2>
+<p>Neotest provides a unified interface for running tests across multiple languages, similar to JetBrains&#39; test runner. It automatically detects test frameworks and provides visual feedback.</p>
+<h2>🚀 Quick Start</h2>
+<h3>Running Tests</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Keybinding</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Run nearest test</td>
+<td><code>&lt;leader&gt;tt</code></td>
+<td>Runs the test under cursor</td>
+</tr>
+<tr>
+<td>Run file</td>
+<td><code>&lt;leader&gt;tf</code></td>
+<td>Runs all tests in current file</td>
+</tr>
+<tr>
+<td>Debug test</td>
+<td><code>&lt;leader&gt;td</code></td>
+<td>Debug test under cursor</td>
+</tr>
+<tr>
+<td>Stop test</td>
+<td><code>&lt;leader&gt;ts</code></td>
+<td>Stop running tests</td>
+</tr>
+<tr>
+<td>Show output</td>
+<td><code>&lt;leader&gt;to</code></td>
+<td>Display test output</td>
+</tr>
+<tr>
+<td>Toggle summary</td>
+<td><code>&lt;leader&gt;ti</code></td>
+<td>Show/hide test summary panel</td>
+</tr>
+</tbody></table>
+<h3>Test Navigation</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Keybinding</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Next failed</td>
+<td><code>]f</code></td>
+<td>Jump to next failed test</td>
+</tr>
+<tr>
+<td>Previous failed</td>
+<td><code>[f</code></td>
+<td>Jump to previous failed test</td>
+</tr>
+<tr>
+<td>Go to test</td>
+<td><code>gt</code></td>
+<td>Jump between test and implementation</td>
+</tr>
+</tbody></table>
+<h2>📊 Test Summary Panel</h2>
+<p>The test summary panel shows all tests in your project:</p>
+<pre><code>Tests Summary
+├── src/
+│   ├── utils.test.js
+│   │   ├── ✓ should format date
+│   │   ├── ✗ should handle null
+│   │   └── ⊙ should validate input
+│   └── api.test.js
+│       ├── ✓ GET /users
+│       └── ✓ POST /users
+</code></pre>
+<h3>Summary Panel Controls</h3>
+<ul>
+<li><code>Enter</code> - Jump to test</li>
+<li><code>r</code> - Run test</li>
+<li><code>d</code> - Debug test</li>
+<li><code>o</code> - Show output</li>
+<li><code>m</code> - Mark test</li>
+<li><code>R</code> - Run marked tests</li>
+<li><code>e</code> - Expand all</li>
+<li><code>E</code> - Collapse all</li>
+</ul>
+<h2>🔧 Supported Test Frameworks</h2>
+<h3>JavaScript/TypeScript</h3>
+<ul>
+<li><strong>Jest</strong> - Automatically detected via <code>package.json</code></li>
+<li><strong>Mocha</strong> - Requires mocha in dependencies</li>
+<li><strong>Vitest</strong> - Modern test runner support</li>
+</ul>
+<h3>Python</h3>
+<ul>
+<li><strong>Pytest</strong> - Default Python test runner</li>
+<li><strong>Unittest</strong> - Standard library testing</li>
+</ul>
+<h3>Other Languages</h3>
+<ul>
+<li><strong>Go</strong> - go test</li>
+<li><strong>Rust</strong> - cargo test</li>
+<li><strong>Ruby</strong> - RSpec</li>
+</ul>
+<h2>📝 Test Configuration</h2>
+<h3>Project-Level Configuration</h3>
+<p>Create <code>.neotest.json</code> in your project root:</p>
+<pre><code class="language-json">{
+  &quot;adapters&quot;: {
+    &quot;jest&quot;: {
+      &quot;jestCommand&quot;: &quot;npm test --&quot;,
+      &quot;jestConfigFile&quot;: &quot;jest.config.js&quot;,
+      &quot;env&quot;: {
+        &quot;CI&quot;: true
+      }
+    },
+    &quot;pytest&quot;: {
+      &quot;runner&quot;: &quot;pytest&quot;,
+      &quot;args&quot;: [&quot;-vv&quot;, &quot;--tb=short&quot;]
+    }
+  }
+}
+</code></pre>
+<h3>Running Specific Test Suites</h3>
+<pre><code class="language-vim">&quot; Run tests matching pattern
+:Neotest run file pattern=&quot;user&quot;
+
+&quot; Run tests with specific tag
+:Neotest run tag=&quot;integration&quot;
+
+&quot; Run only marked tests
+:Neotest run marked
+</code></pre>
+<h2>🎯 Test-Driven Development (TDD) Workflow</h2>
+<h3>1. Watch Mode</h3>
+<p>Enable automatic test running on file save:</p>
+<pre><code class="language-vim">:Neotest watch
+</code></pre>
+<p>Or for current file only:</p>
+<pre><code class="language-vim">&lt;leader&gt;tw  &quot; Toggle watch mode
+</code></pre>
+<h3>2. TDD Cycle</h3>
+<ol>
+<li>Write failing test (<code>&lt;leader&gt;tt</code>)</li>
+<li>See red indicator in gutter</li>
+<li>Implement feature</li>
+<li>Run test again (<code>&lt;leader&gt;tt</code>)</li>
+<li>See green indicator</li>
+<li>Refactor with confidence</li>
+</ol>
+<h3>3. Visual Indicators</h3>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>✓</code></td>
+<td>Test passed</td>
+</tr>
+<tr>
+<td><code>✗</code></td>
+<td>Test failed</td>
+</tr>
+<tr>
+<td><code>⊙</code></td>
+<td>Test running</td>
+</tr>
+<tr>
+<td><code>○</code></td>
+<td>Test skipped</td>
+</tr>
+<tr>
+<td><code>⚠</code></td>
+<td>Test error</td>
+</tr>
+</tbody></table>
+<h2>🔍 Test Output and Diagnostics</h2>
+<h3>Viewing Test Output</h3>
+<pre><code class="language-vim">&quot; Full output for nearest test
+&lt;leader&gt;to
+
+&quot; Output with panel enter
+&lt;leader&gt;tO
+
+&quot; Floating window output
+&lt;leader&gt;tF
+</code></pre>
+<h3>Output Panel Features</h3>
+<ul>
+<li>Syntax highlighting</li>
+<li>Error locations are clickable</li>
+<li>Stack traces are foldable</li>
+<li>Search within output (<code>/</code>)</li>
+</ul>
+<h2>🏃 Run Configurations</h2>
+<h3>Custom Test Commands</h3>
+<p>Add to your <code>lua/config/run.lua</code>:</p>
+<pre><code class="language-lua">M.configs = {
+  {
+    name = &quot;Test: Unit&quot;,
+    cmd = &quot;npm run test:unit&quot;,
+    type = &quot;terminal&quot;,
+  },
+  {
+    name = &quot;Test: Integration&quot;,
+    cmd = &quot;npm run test:integration&quot;,
+    type = &quot;terminal&quot;,
+  },
+  {
+    name = &quot;Test: E2E&quot;,
+    cmd = &quot;npm run test:e2e&quot;,
+    type = &quot;terminal&quot;,
+  },
+  {
+    name = &quot;Test: Coverage&quot;,
+    cmd = &quot;npm run test:coverage&quot;,
+    type = &quot;terminal&quot;,
+  },
+}
+</code></pre>
+<p>Access with <code>⌘3</code> to switch between test configurations.</p>
+<h2>🐛 Debugging Tests</h2>
+<h3>Debug Single Test</h3>
+<ol>
+<li>Place cursor on test</li>
+<li>Press <code>&lt;leader&gt;td</code> or use <code>F9</code> to set breakpoint</li>
+<li>Test runs in debug mode</li>
+<li>Debug UI opens automatically (<code>⌘4</code>)</li>
+</ol>
+<h3>Debug Configuration</h3>
+<pre><code class="language-lua">-- In your test file
+-- @debug
+test(&quot;should handle edge case&quot;, () =&gt; {
+  // This test will always run in debug mode
+})
+</code></pre>
+<h2>📈 Coverage Integration</h2>
+<h3>View Coverage</h3>
+<pre><code class="language-vim">&quot; Show coverage report
+:Coverage
+
+&quot; Toggle coverage signs
+:CoverageToggle
+
+&quot; Load coverage file
+:CoverageLoad coverage/lcov.info
+</code></pre>
+<h3>Coverage Indicators</h3>
+<ul>
+<li>Green lines: Covered</li>
+<li>Red lines: Not covered</li>
+<li>Yellow lines: Partially covered</li>
+</ul>
+<h2>💡 Tips and Tricks</h2>
+<h3>1. Test Organization</h3>
+<pre><code>project/
+├── src/
+│   ├── components/
+│   │   ├── Button.jsx
+│   │   └── Button.test.jsx    # Colocated tests
+│   └── utils/
+│       ├── format.js
+│       └── __tests__/          # Test folder
+│           └── format.test.js
+</code></pre>
+<h3>2. Quick Test Creation</h3>
+<pre><code class="language-vim">&quot; Create test file for current file
+:TestCreate
+
+&quot; Generate test scaffold
+:TestGenerate
+</code></pre>
+<h3>3. Test Snippets</h3>
+<p>Type these in insert mode:</p>
+<ul>
+<li><code>test</code> → Test block</li>
+<li><code>desc</code> → Describe block</li>
+<li><code>it</code> → It block</li>
+<li><code>exp</code> → Expect assertion</li>
+</ul>
+<h3>4. Running Tests from Terminal</h3>
+<pre><code class="language-bash"># Run all tests
+nvim +&quot;:Neotest run&quot;
+
+# Run specific file
+nvim +&quot;Neotest run file src/utils.test.js&quot;
+</code></pre>
+<h2>🔌 Integration with CI/CD</h2>
+<h3>GitHub Actions Example</h3>
+<pre><code class="language-yaml">- name: Run Tests in Neovim
+  run: |
+    nvim --headless +&quot;:Neotest run&quot; +&quot;:q&quot;
+</code></pre>
+<h3>Pre-commit Hook</h3>
+<pre><code class="language-bash">#!/bin/sh
+nvim --headless +&quot;:Neotest run&quot; +&quot;:qa!&quot; || exit 1
+</code></pre>
+<h2>🚨 Troubleshooting</h2>
+<h3>Tests Not Detected</h3>
+<ol>
+<li>Check adapter is installed: <code>:Neotest info</code></li>
+<li>Verify test pattern matches</li>
+<li>Ensure test framework is in dependencies</li>
+</ol>
+<h3>Slow Test Discovery</h3>
+<ol>
+<li>Limit test directories in config</li>
+<li>Use <code>.gitignore</code> patterns</li>
+<li>Disable watch mode for large projects</li>
+</ol>
+<h3>Output Not Showing</h3>
+<ol>
+<li>Check output panel: <code>&lt;leader&gt;to</code></li>
+<li>Verify terminal settings</li>
+<li>Try different output strategy</li>
+</ol>
+<hr>
+<p><strong><a href="../keymap-cheatsheet.md">← Previous: Keymap Cheatsheet</a></strong> | <strong><a href="debugging.md">Next: Debugging Workflow →</a></strong></p>
+
+    </main>
+  </div>
+</body>
+</html>

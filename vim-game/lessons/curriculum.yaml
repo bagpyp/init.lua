@@ -1,0 +1,488 @@
+# VimGame Lesson Curriculum - REAL NEOVIM CONFIG BINDINGS
+# Teaching the actual JetBrains-style bindings from this repository
+
+curriculum:
+  name: "YOUR JetBrains Neovim Mastery"
+  version: "1.0.0"
+  description: "Master the actual JetBrains-style bindings you've configured in this repository"
+  
+categories:
+  - id: panels
+    name: "Panel System (Space+1-8)"
+    description: "Master the core JetBrains panel shortcuts YOU configured"
+    color: "#F59E0B"
+    icon: "🎯"
+    
+  - id: refactoring
+    name: "Refactoring Tools"
+    description: "Learn your LSP-powered refactoring shortcuts"
+    color: "#8B5CF6"
+    icon: "🔧"
+    
+  - id: debugging
+    name: "Debugging (F-Keys)"
+    description: "Master your DAP debugging workflow"
+    color: "#EF4444"
+    icon: "🐛"
+    
+  - id: testing
+    name: "Test Runner"
+    description: "Learn your Neotest shortcuts"
+    color: "#10B981"
+    icon: "🧪"
+    
+  - id: advanced
+    name: "Advanced Workflows"
+    description: "Multi-cursor, line movement, and power features"
+    color: "#3B82F6"
+    icon: "⚡"
+
+lessons:
+  # ================================
+  # PANEL SYSTEM - The heart of your config!
+  # ================================
+  - id: panel-basics
+    title: "Your Panel System: Space+1-8"
+    category: panels
+    difficulty: beginner
+    points: 200
+    description: "Learn the JetBrains-style panel system YOU configured"
+    estimated_time: 8
+    challenges:
+      - id: file-explorer
+        description: "Open your file explorer with Space+1 (Neotree)"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "-- Welcome to YOUR Neovim config!"
+            - "-- Let's learn the bindings you've set up"
+            - ""
+            - "function main() {"
+            - "  console.log('Your config rocks!');"
+            - "}"
+          cursor: { line: 0, col: 0 }
+        expected_commands: ["<leader>1"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "Press Space+1 to open your Neotree file explorer 📁"
+          - delay: 8000
+            text: "This maps to: <cmd>Neotree toggle<cr>"
+
+      - id: git-status
+        description: "Check git status with Space+2 (Telescope git_status)"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "// Modified file - let's check git status"
+            - "const changes = 'lots of them';"
+          cursor: { line: 0, col: 0 }
+        expected_commands: ["<leader>2"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "Press Space+2 to open your git status view"
+          - delay: 8000
+            text: "This runs: <cmd>Telescope git_status<cr>"
+
+      - id: run-configs
+        description: "Open your run configurations with Space+3"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "#!/usr/bin/env node"
+            - "// Ready to run this script?"
+            - "console.log('Hello from your config!');"
+          cursor: { line: 0, col: 0 }
+        expected_commands: ["<leader>3"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "Press Space+3 to open your custom run configs"
+          - delay: 8000
+            text: "This calls your custom: lua require('config.run').toggle()"
+
+      - id: debugger-panel
+        description: "Open the debugger with Space+4 (DAP UI)"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "function buggyCode() {"
+            - "  const x = undefined;"
+            - "  return x.property; // This will break!"
+            - "}"
+          cursor: { line: 1, col: 2 }
+        expected_commands: ["<leader>4"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "Press Space+4 to open your DAP debugger UI"
+          - delay: 8000
+            text: "This toggles: lua require('dapui').toggle()"
+
+  # ================================
+  # REFACTORING - Your LSP power tools
+  # ================================
+  - id: refactoring-master
+    title: "Your Refactoring Shortcuts"
+    category: refactoring
+    difficulty: intermediate
+    points: 300
+    description: "Master the LSP refactoring tools you've configured"
+    estimated_time: 10
+    challenges:
+      - id: rename-symbol
+        description: "Rename a symbol with Shift+F6 (LSP rename)"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "const oldVariableName = 'needs renaming';"
+            - "console.log(oldVariableName);"
+            - "return oldVariableName.toUpperCase();"
+          cursor: { line: 0, col: 6 }
+        expected_commands: ["<S-F6>"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "Place cursor on 'oldVariableName' and press Shift+F6"
+          - delay: 8000
+            text: "This triggers: vim.lsp.buf.rename"
+          - delay: 12000
+            text: "REAL JetBrains behavior - renames everywhere!"
+
+      - id: move-file
+        description: "Move/rename a file with F6"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "// This file: old-name.js"
+            - "// Should be: new-awesome-name.js"
+            - "export const myFunction = () => 'hello';"
+          cursor: { line: 0, col: 0 }
+        expected_commands: ["<F6>"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "Press F6 to move/rename the current file"
+          - delay: 8000
+            text: "This runs your: <cmd>Move<cr> command"
+
+      - id: extract-method
+        description: "Extract method from selection with 'M' in visual mode"
+        initial_state:
+          mode: visual
+          buffer: 
+            - "function calculateTotal() {"
+            - "  const tax = price * 0.08;"
+            - "  const discount = price * 0.1;"
+            - "  const final = price + tax - discount;"
+            - "  return final;"
+            - "}"
+          cursor: { line: 1, col: 2 }
+          selection: 
+            start: { line: 1, col: 2 }
+            end: { line: 3, col: 25 }
+        expected_commands: ["M"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "With code selected, press 'M' to extract to method"
+          - delay: 8000
+            text: "This calls: require('refactoring').refactor('Extract Function')"
+
+  # ================================
+  # DEBUGGING - Your DAP F-key workflow
+  # ================================
+  - id: debugging-fkeys
+    title: "Your Debug F-Key Workflow"
+    category: debugging
+    difficulty: intermediate
+    points: 250
+    description: "Master the F-key debugging shortcuts you've set up"
+    estimated_time: 12
+    challenges:
+      - id: debug-continue
+        description: "Start/continue debugging with F5"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "function problematicFunction(x, y) {"
+            - "  debugger; // Breakpoint here"
+            - "  const result = x / y;"
+            - "  return result;"
+            - "}"
+          cursor: { line: 1, col: 2 }
+        expected_commands: ["<F5>"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "Press F5 to start/continue debugging"
+          - delay: 8000
+            text: "This calls: require('dap').continue()"
+
+      - id: debug-step-over
+        description: "Step over with F10"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "function step_through_this() {"
+            - "  const a = 1; // ← You are here"
+            - "  const b = 2; // ← Step to here"
+            - "  return a + b;"
+            - "}"
+          cursor: { line: 1, col: 2 }
+        expected_commands: ["<F10>"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "Press F10 to step over the current line"
+          - delay: 8000
+            text: "This calls: require('dap').step_over()"
+
+      - id: debug-step-into
+        description: "Step into function with F11"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "function caller() {"
+            - "  return helperFunction(); // ← Step INTO this"
+            - "}"
+            - ""
+            - "function helperFunction() {"
+            - "  return 'secret sauce';"
+            - "}"
+          cursor: { line: 1, col: 9 }
+        expected_commands: ["<F11>"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "Press F11 to step INTO the function call"
+          - delay: 8000
+            text: "This calls: require('dap').step_into()"
+
+  # ================================
+  # TESTING - Your Neotest shortcuts
+  # ================================
+  - id: testing-workflow
+    title: "Your Test Runner Shortcuts"
+    category: testing
+    difficulty: intermediate
+    points: 200
+    description: "Learn the test shortcuts you've configured with <leader>t"
+    estimated_time: 8
+    challenges:
+      - id: run-nearest-test
+        description: "Run nearest test with <leader>tt"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "describe('Calculator', () => {"
+            - "  it('should add numbers', () => {"
+            - "    expect(add(2, 3)).toBe(5); // ← Cursor here"
+            - "  });"
+            - "});"
+          cursor: { line: 2, col: 10 }
+        expected_commands: ["<leader>tt"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "Press <leader>tt to run the nearest test"
+          - delay: 8000
+            text: "This runs: require('neotest').run.run()"
+
+      - id: run-file-tests
+        description: "Run all tests in file with <leader>tf"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "// test-file.spec.js"
+            - "// Multiple tests in this file"
+            - "describe('Suite 1', () => { /* tests */ });"
+            - "describe('Suite 2', () => { /* tests */ });"
+          cursor: { line: 0, col: 0 }
+        expected_commands: ["<leader>tf"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "Press <leader>tf to run ALL tests in this file"
+          - delay: 8000
+            text: "This runs: require('neotest').run.run(vim.fn.expand('%'))"
+
+  # ================================
+  # ADVANCED - Multi-cursor and power features
+  # ================================
+  - id: advanced-features
+    title: "Your Advanced Shortcuts"
+    category: advanced
+    difficulty: advanced
+    points: 400
+    description: "Master multi-cursor, line movement, and other power features"
+    estimated_time: 15
+    challenges:
+      - id: multi-cursor
+        description: "Add cursor with Ctrl+G"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "const item1 = 'value1';"
+            - "const item2 = 'value2';"
+            - "const item3 = 'value3';"
+            - "// Select all 'item' words"
+          cursor: { line: 0, col: 6 }
+        expected_commands: ["<C-g>"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "Place cursor on 'item1' and press Ctrl+G for multi-cursor"
+          - delay: 8000
+            text: "This starts: require('vim-visual-multi').start()"
+
+      - id: move-lines
+        description: "Move line up with Shift+Up"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "const first = 1;"
+            - "const second = 2; // ← Move this line up"
+            - "const third = 3;"
+          cursor: { line: 1, col: 0 }
+        expected_commands: ["<S-Up>"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "Press Shift+Up to move the line up"
+          - delay: 8000
+            text: "This runs: <cmd>move -2<cr>=="
+
+      - id: quick-search
+        description: "Quick file search with <leader>ff (your Telescope setup)"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "// Need to find another file quickly?"
+            - "// Use your configured shortcuts!"
+          cursor: { line: 0, col: 0 }
+        expected_commands: ["<leader>ff"]
+        max_commands: 1
+        hints:
+          - delay: 3000
+            text: "Press <leader>ff for quick file search"
+          - delay: 8000
+            text: "This opens: Telescope find_files"
+
+  # ================================
+  # MASTER CHALLENGE - Combine everything!
+  # ================================
+  - id: master-workflow
+    title: "Complete JetBrains Workflow"
+    category: advanced
+    difficulty: expert
+    points: 500
+    description: "Use your complete JetBrains-style workflow in one challenge"
+    estimated_time: 20
+    challenges:
+      - id: full-workflow
+        description: "Complete a typical development workflow using YOUR bindings"
+        initial_state:
+          mode: normal
+          buffer: 
+            - "// TODO: Complete development workflow"
+            - "// 1. Open file explorer"
+            - "// 2. Check git status"
+            - "// 3. Run tests"
+            - "// 4. Debug if needed"
+            - "// 5. Refactor code"
+            - ""
+            - "function needsRefactoring(badName) {"
+            - "  const result = badName * 2;"
+            - "  return result;"
+            - "}"
+          cursor: { line: 0, col: 0 }
+        expected_commands: ["<leader>1", "<leader>2", "<leader>tt", "<S-F6>"]
+        max_commands: 10
+        time_limit: 60000
+        hints:
+          - delay: 5000
+            text: "Start with Space+1 to see your project structure"
+          - delay: 15000
+            text: "Then Space+2 to check git status"
+          - delay: 25000
+            text: "Use <leader>tt to run tests"
+          - delay: 35000
+            text: "Finally, rename 'badName' with Shift+F6"
+
+achievements:
+  # Panel mastery
+  panel_navigator:
+    title: "Panel Navigator"
+    description: "Use all 8 panel shortcuts (Space+1-8)"
+    icon: "🎯"
+    points: 100
+    trigger: { type: "commands_used", commands: ["<leader>1", "<leader>2", "<leader>3", "<leader>4", "<leader>5", "<leader>6", "<leader>7", "<leader>8"] }
+
+  # Refactoring master
+  refactoring_ninja:
+    title: "Refactoring Ninja" 
+    description: "Master all refactoring shortcuts"
+    icon: "🥷"
+    points: 150
+    trigger: { type: "commands_used", commands: ["<S-F6>", "<F6>", "M", "<leader>ri"] }
+
+  # Debug master
+  debug_detective:
+    title: "Debug Detective"
+    description: "Use all F-key debugging shortcuts"
+    icon: "🕵️"
+    points: 125
+    trigger: { type: "commands_used", commands: ["<F5>", "<F10>", "<F11>", "<S-F11>"] }
+
+  # Test runner
+  test_master:
+    title: "Test Master"
+    description: "Master all testing shortcuts"
+    icon: "🧪"
+    points: 100
+    trigger: { type: "commands_used", commands: ["<leader>tt", "<leader>tf", "<leader>to", "<leader>ts"] }
+
+  # Speed demon
+  jetbrains_speed_demon:
+    title: "JetBrains Speed Demon"
+    description: "Complete workflow challenge in under 30 seconds"
+    icon: "⚡"
+    points: 200
+    trigger: { type: "lesson_time", lesson_id: "master-workflow", max_time: 30000 }
+
+  # Completionist
+  config_master:
+    title: "Config Master"
+    description: "Complete ALL lessons and truly master your config"
+    icon: "👑"
+    points: 1000
+    trigger: { type: "all_lessons_completed" }
+
+progression:
+  levels:
+    - name: "Config Newbie"
+      min_points: 0
+      max_points: 200
+      color: "#10B981"
+      
+    - name: "Panel Explorer"
+      min_points: 201
+      max_points: 500
+      color: "#F59E0B"
+      
+    - name: "JetBrains Apprentice"
+      min_points: 501
+      max_points: 1000
+      color: "#8B5CF6"
+      
+    - name: "Config Expert"
+      min_points: 1001
+      max_points: 2000
+      color: "#EF4444"
+      
+    - name: "JetBrains Master"
+      min_points: 2001
+      max_points: 9999
+      color: "#3B82F6"

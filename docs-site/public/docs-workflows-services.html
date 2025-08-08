@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐳 Services & Docker Workflow - Neovim Config Docs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      grid-template-areas: "sidebar main";
+      gap: 30px;
+      align-items: start;
+    }
+    
+    nav {
+      grid-area: sidebar;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      padding: 20px;
+      height: fit-content;
+      position: sticky;
+      top: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      min-width: 0; /* Prevent overflow issues */
+    }
+    
+    nav h2 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+    
+    nav ul {
+      list-style: none;
+    }
+    
+    nav li {
+      margin: 8px 0;
+    }
+    
+    nav a {
+      color: #555;
+      text-decoration: none;
+      padding: 8px 12px;
+      display: block;
+      border-radius: 6px;
+      transition: all 0.3s;
+    }
+    
+    nav a:hover {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      transform: translateX(5px);
+    }
+    
+    nav a.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    main {
+      grid-area: main;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      min-width: 0; /* Prevent overflow issues */
+      overflow-wrap: break-word;
+    }
+    
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    h2 {
+      color: #444;
+      margin: 30px 0 15px;
+      font-size: 1.8em;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+    }
+    
+    h3 {
+      color: #555;
+      margin: 25px 0 12px;
+      font-size: 1.4em;
+    }
+    
+    h4 {
+      color: #666;
+      margin: 20px 0 10px;
+      font-size: 1.2em;
+    }
+    
+    p {
+      color: #555;
+      margin: 15px 0;
+    }
+    
+    pre {
+      background: #1e1e1e;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+      border: 1px solid #333;
+    }
+    
+    code {
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+      font-size: 0.9em;
+    }
+    
+    :not(pre) > code {
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #d73a49;
+    }
+    
+    ul, ol {
+      margin: 15px 0;
+      padding-left: 30px;
+      color: #555;
+    }
+    
+    li {
+      margin: 8px 0;
+    }
+    
+    a {
+      color: #667eea;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    
+    a:hover {
+      border-bottom-color: #667eea;
+    }
+    
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding-left: 20px;
+      margin: 20px 0;
+      color: #666;
+      font-style: italic;
+      background: #f8f8f8;
+      padding: 15px 20px;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    
+    th {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    .home-hero {
+      text-align: center;
+      padding: 40px 0;
+      border-bottom: 2px solid #e0e0e0;
+      margin-bottom: 30px;
+    }
+    
+    .home-hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    
+    .home-hero p {
+      font-size: 1.2em;
+      color: #666;
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .feature-card {
+      background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #667eea30;
+    }
+    
+    .feature-card h3 {
+      color: #667eea;
+      margin-bottom: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+          "sidebar"
+          "main";
+      }
+      
+      nav {
+        position: static;
+        grid-area: sidebar;
+      }
+      
+      main {
+        grid-area: main;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      
+  <h2>📚 Documentation</h2>
+  <ul>
+    <li><a href="index.html">Home</a></li><li><a href="readme-main.html">🚀 JetBrains-Style Neovim Configuration</a></li><li><a href="testing-guide.html">🧪 Complete Testing Guide</a></li><li><a href="claude.html">CLAUDE.md - AI Assistant Instructions</a></li><li><a href="jetbrains-shortcuts.html">🚀 JetBrains-Style Shortcuts (Space + Number System)</a></li><li><a href="run.html">🚀 RUN.md - How to Use This Neovim Configuration</a></li><li><a href="shortcut-migration.html">🔄 Shortcut Migration Complete!</a></li><li><a href="keymap-cheatsheet.html">🔑 Keymap Cheatsheet</a></li><li><a href="learning-vim.html">🎓 Learning Vim: From JetBrains to Neovim</a></li><li><a href="overview.html">📘 Overview: JetBrains Parity in Neovim</a></li><li><a href="test-explanation.html">✅ Test Suite: Always Passing</a></li><li><a href="docs-workflows-debugging.html">🐛 Debugging Workflow with nvim-dap</a></li><li><a href="docs-workflows-multicursor.html">🎯 Multi-cursor Workflow</a></li><li><a href="docs-workflows-refactoring.html">♻️ Refactoring Workflow</a></li><li><a href="docs-workflows-services.html">🐳 Services & Docker Workflow</a></li><li><a href="docs-workflows-structure.html">🏗 Code Structure & Symbol Navigation</a></li><li><a href="docs-workflows-testing.html">🧪 Testing Workflow with Neotest</a></li><li><a href="test-readme.html">🧪 Test Suite Documentation</a></li><li><a href="vim-game-readme.html">🎮 VimGame - Interactive Neovim Learning Framework</a></li><li><a href="vim-game-todo.html">VimGame Development TODO</a></li><li><a href="vim-game-vimgame-ready.html">🎮 VimGame is Ready! </a></li><li><a href="vim-game-specs-architecture.html">VimGame Architecture Specification</a></li>
+  </ul>
+
+    </nav>
+    <main>
+      <h1>🐳 Services &amp; Docker Workflow</h1>
+<p><strong><a href="multicursor.md">← Previous: Multi-cursor Workflow</a></strong> | <strong><a href="structure.md">Next: Code Structure →</a></strong></p>
+<hr>
+<h2>Overview</h2>
+<p>The Services panel (<code>⌘6</code>) provides Docker container management similar to JetBrains&#39; Services tab. Monitor, control, and debug containers without leaving Neovim.</p>
+<h2>🚀 Quick Start</h2>
+<h3>Open Services Panel</h3>
+<p>Press <code>⌘6</code> to toggle the Docker services panel.</p>
+<h3>Panel Layout</h3>
+<pre><code>╭─ Docker Services ──────────────────────╮
+│ NAMES          STATUS         PORTS    │
+│ ──────────────────────────────────────│
+│ web-app        Up 2 hours     3000:3000│
+│ postgres-db    Up 2 hours     5432:5432│
+│ redis-cache    Up 1 hour      6379:6379│
+│ nginx-proxy    Exited (1)     -        │
+│                                        │
+│ Commands:                              │
+│   r - Refresh                          │
+│   s - Start/Stop container             │
+│   l - View logs                        │
+│   q - Close                            │
+╰────────────────────────────────────────╯
+</code></pre>
+<h2>🎮 Container Management</h2>
+<h3>Basic Operations</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>⌘6</code></td>
+<td>Toggle Panel</td>
+<td>Show/hide services</td>
+</tr>
+<tr>
+<td><code>r</code></td>
+<td>Refresh</td>
+<td>Update container list</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>Start/Stop</td>
+<td>Toggle container state</td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td>Logs</td>
+<td>View container logs</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>Delete</td>
+<td>Remove container</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>Inspect</td>
+<td>Show container details</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>Close</td>
+<td>Close panel</td>
+</tr>
+</tbody></table>
+<h3>Container States</h3>
+<table>
+<thead>
+<tr>
+<th>Icon</th>
+<th>State</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🟢</td>
+<td>Up</td>
+<td>Container running</td>
+</tr>
+<tr>
+<td>🔴</td>
+<td>Exited</td>
+<td>Container stopped</td>
+</tr>
+<tr>
+<td>🟡</td>
+<td>Restarting</td>
+<td>Container restarting</td>
+</tr>
+<tr>
+<td>⚪</td>
+<td>Created</td>
+<td>Container created but not started</td>
+</tr>
+<tr>
+<td>🟣</td>
+<td>Paused</td>
+<td>Container paused</td>
+</tr>
+</tbody></table>
+<h2>📦 Docker Compose Integration</h2>
+<h3>Compose Commands</h3>
+<pre><code class="language-vim">&quot; Start all services
+:DockerComposeUp
+
+&quot; Stop all services
+:DockerComposeDown
+
+&quot; Restart services
+:DockerComposeRestart
+
+&quot; View compose logs
+:DockerComposeLogs
+</code></pre>
+<h3>Project Structure</h3>
+<pre><code>project/
+├── docker-compose.yml
+├── .env
+├── services/
+│   ├── web/
+│   │   └── Dockerfile
+│   ├── api/
+│   │   └── Dockerfile
+│   └── db/
+│       └── init.sql
+</code></pre>
+<h2>🔍 Container Inspection</h2>
+<h3>View Container Details</h3>
+<p>With cursor on container, press <code>i</code>:</p>
+<pre><code class="language-yaml">Container: web-app
+ID: a1b2c3d4e5f6
+Image: node:16-alpine
+Status: Up 2 hours
+Ports:
+  - 3000:3000
+  - 9229:9229 (debug)
+Environment:
+  NODE_ENV: development
+  PORT: 3000
+Volumes:
+  - ./src:/app/src
+  - node_modules:/app/node_modules
+Networks:
+  - app-network
+</code></pre>
+<h3>Container Logs</h3>
+<p>Press <code>l</code> on container to view logs:</p>
+<pre><code>web-app logs:
+─────────────
+[2024-01-10 10:00:00] Server starting...
+[2024-01-10 10:00:01] Connected to database
+[2024-01-10 10:00:02] Server running on port 3000
+[2024-01-10 10:00:15] GET /api/users 200 45ms
+[2024-01-10 10:00:20] POST /api/login 201 120ms
+</code></pre>
+<h3>Log Filtering</h3>
+<pre><code class="language-vim">&quot; Filter logs by pattern
+:DockerLogs web-app --grep ERROR
+
+&quot; Follow logs
+:DockerLogs web-app -f
+
+&quot; Last N lines
+:DockerLogs web-app --tail 100
+</code></pre>
+<h2>🐛 Debugging Containers</h2>
+<h3>Attach to Container</h3>
+<pre><code class="language-vim">&quot; Open shell in container
+:DockerExec web-app /bin/sh
+
+&quot; Run command in container
+:DockerExec web-app npm test
+
+&quot; Attach to running process
+:DockerAttach web-app
+</code></pre>
+<h3>Debug Node.js in Container</h3>
+<ol>
+<li>Expose debug port in docker-compose.yml:</li>
+</ol>
+<pre><code class="language-yaml">services:
+  web:
+    ports:
+      - &quot;3000:3000&quot;
+      - &quot;9229:9229&quot;  # Debug port
+    command: node --inspect=0.0.0.0:9229 server.js
+</code></pre>
+<ol start="2">
+<li>Configure DAP debugger:</li>
+</ol>
+<pre><code class="language-lua">{
+  type = &quot;pwa-node&quot;,
+  request = &quot;attach&quot;,
+  name = &quot;Docker: Attach&quot;,
+  address = &quot;localhost&quot;,
+  port = 9229,
+  localRoot = &quot;${workspaceFolder}&quot;,
+  remoteRoot = &quot;/app&quot;,
+}
+</code></pre>
+<ol start="3">
+<li>Start debugging with <code>F5</code></li>
+</ol>
+<h2>🔧 Database Management</h2>
+<h3>Connect to Database Container</h3>
+<p>Press <code>⌘5</code> for database UI, then:</p>
+<pre><code class="language-vim">&quot; Add connection to container
+:DBUIAddConnection
+
+&quot; Connection string for PostgreSQL container
+postgresql://user:password@localhost:5432/dbname
+
+&quot; For MySQL container
+mysql://user:password@localhost:3306/dbname
+</code></pre>
+<h3>Database Operations</h3>
+<pre><code class="language-sql">-- Run queries directly
+SELECT * FROM users;
+
+-- Export data
+\copy users TO &#39;/tmp/users.csv&#39; CSV HEADER;
+
+-- Import data
+\copy users FROM &#39;/tmp/users.csv&#39; CSV HEADER;
+</code></pre>
+<h2>📊 Container Monitoring</h2>
+<h3>Resource Usage</h3>
+<pre><code class="language-vim">&quot; Show container stats
+:DockerStats
+
+&quot; Output:
+CONTAINER    CPU %    MEM USAGE    NET I/O
+web-app      0.5%     128MB/512MB  1.2kB/3.4kB
+postgres-db  2.1%     256MB/1GB    5.6kB/2.1kB
+redis-cache  0.1%     32MB/256MB   500B/1.2kB
+</code></pre>
+<h3>Health Checks</h3>
+<pre><code class="language-yaml"># docker-compose.yml
+services:
+  web:
+    healthcheck:
+      test: [&quot;CMD&quot;, &quot;curl&quot;, &quot;-f&quot;, &quot;http://localhost:3000/health&quot;]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+</code></pre>
+<p>View health status in services panel:</p>
+<pre><code>web-app    Up 2 hours (healthy)    3000:3000
+api-app    Up 1 hour (unhealthy)   8080:8080
+</code></pre>
+<h2>🚀 Development Workflow</h2>
+<h3>Hot Reload Setup</h3>
+<pre><code class="language-yaml"># docker-compose.yml
+services:
+  web:
+    volumes:
+      - ./src:/app/src  # Mount source code
+      - /app/node_modules  # Exclude node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true  # For file watching
+    command: npm run dev  # Development command
+</code></pre>
+<h3>Workflow Steps</h3>
+<ol>
+<li><code>⌘6</code> - Open services panel</li>
+<li><code>s</code> - Start containers</li>
+<li><code>l</code> - Monitor logs</li>
+<li>Make code changes (auto-reload)</li>
+<li><code>⌘4</code> - Debug if needed</li>
+<li><code>s</code> - Stop when done</li>
+</ol>
+<h2>🔄 Container Orchestration</h2>
+<h3>Multi-Service Commands</h3>
+<pre><code class="language-vim">&quot; Start specific services
+:DockerComposeUp web db
+
+&quot; Scale service
+:DockerComposeScale web=3
+
+&quot; Rolling restart
+:DockerComposeRestart --rolling
+</code></pre>
+<h3>Service Dependencies</h3>
+<pre><code class="language-yaml">services:
+  web:
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+    
+  db:
+    restart: always
+    
+  redis:
+    restart: on-failure
+</code></pre>
+<h2>📦 Volume Management</h2>
+<h3>Volume Operations</h3>
+<pre><code class="language-vim">&quot; List volumes
+:DockerVolumes
+
+&quot; Inspect volume
+:DockerVolumeInspect app_data
+
+&quot; Clean unused volumes
+:DockerVolumePrune
+</code></pre>
+<h3>Persistent Data</h3>
+<pre><code class="language-yaml">volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+    
+services:
+  db:
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+</code></pre>
+<h2>🌐 Network Management</h2>
+<h3>Network Commands</h3>
+<pre><code class="language-vim">&quot; List networks
+:DockerNetworks
+
+&quot; Inspect network
+:DockerNetworkInspect app-network
+
+&quot; Connect container to network
+:DockerNetworkConnect app-network web-app
+</code></pre>
+<h3>Network Configuration</h3>
+<pre><code class="language-yaml">networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+    internal: true
+    
+services:
+  web:
+    networks:
+      - frontend
+      - backend
+</code></pre>
+<h2>💡 Tips and Tricks</h2>
+<h3>1. Quick Rebuild</h3>
+<pre><code class="language-bash"># In terminal (⌘8)
+docker-compose build --no-cache web
+docker-compose up -d web
+</code></pre>
+<h3>2. Environment Switching</h3>
+<pre><code class="language-bash"># Development
+docker-compose -f docker-compose.yml up
+
+# Production
+docker-compose -f docker-compose.prod.yml up
+</code></pre>
+<h3>3. Debugging Tips</h3>
+<ul>
+<li>Use <code>docker-compose logs -f service_name</code> for real-time logs</li>
+<li>Add <code>stdin_open: true</code> and <code>tty: true</code> for interactive debugging</li>
+<li>Mount <code>.env</code> files for easy configuration changes</li>
+</ul>
+<h2>🚨 Troubleshooting</h2>
+<h3>Container Won&#39;t Start</h3>
+<ol>
+<li>Check logs: <code>l</code> in services panel</li>
+<li>Verify ports: <code>docker ps -a</code></li>
+<li>Check resources: <code>docker system df</code></li>
+</ol>
+<h3>Connection Issues</h3>
+<ol>
+<li>Verify network: <code>:DockerNetworkInspect</code></li>
+<li>Check firewall rules</li>
+<li>Ensure correct port mapping</li>
+</ol>
+<h3>Performance Problems</h3>
+<ol>
+<li>Limit resources in docker-compose:</li>
+</ol>
+<pre><code class="language-yaml">services:
+  web:
+    mem_limit: 512m
+    cpus: &#39;0.5&#39;
+</code></pre>
+<ol start="2">
+<li>Use <code>.dockerignore</code></li>
+<li>Optimize Dockerfile layers</li>
+</ol>
+<hr>
+<p><strong><a href="multicursor.md">← Previous: Multi-cursor Workflow</a></strong> | <strong><a href="structure.md">Next: Code Structure →</a></strong></p>
+
+    </main>
+  </div>
+</body>
+</html>
