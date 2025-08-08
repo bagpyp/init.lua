@@ -15,6 +15,7 @@ return {
         popup_border_style = "rounded",
         enable_git_status = true,
         enable_diagnostics = true,
+        use_popups_for_input = false,
         default_component_configs = {
           container = {
             enable_character_fade = true

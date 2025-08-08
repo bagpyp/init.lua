@@ -57,3 +57,10 @@ end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
+-- Transparency settings
+vim.opt.pumblend = 0 -- Make popup menu transparent
+vim.opt.winblend = 0 -- Make floating windows transparent
+vim.g.neovide_transparency = 0.0
+vim.g.transparency = 0.8
+vim.g.neovide_background_color = "#0f1117" .. string.format("%x", math.floor(255 * 0.8))
