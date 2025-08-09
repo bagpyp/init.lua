@@ -1,7 +1,14 @@
 return {
-  -- Completion engine
+  -- Disable cmp-nvim-lsp separately since it's in lazy-lock.json
+  {
+    "hrsh7th/cmp-nvim-lsp",
+    enabled = false,
+  },
+  
+  -- Completion engine (disabled - using blink.cmp instead)
   {
     "hrsh7th/nvim-cmp",
+    enabled = false,
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",

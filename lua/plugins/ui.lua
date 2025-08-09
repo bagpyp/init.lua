@@ -224,10 +224,12 @@ return {
   },
 
 
-  -- Dashboard
+  -- Dashboard - Override LazyVim's default
   {
     "goolord/alpha-nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VimEnter",
+    priority = 1000,
     config = function()
       local alpha = require("alpha")
       local dashboard = require("alpha.themes.dashboard")
@@ -245,14 +247,21 @@ return {
         [[                                                     ]],
       }
       
+      -- Use simple button creation function
+      local function button(sc, txt, keybind, keybind_opts)
+        local b = dashboard.button(sc, txt, keybind, keybind_opts)
+        b.opts.hl_shortcut = "Macro"
+        return b
+      end
+      
       dashboard.section.buttons.val = {
-        dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
-        dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-        dashboard.button("p", "  Find project", ":Telescope projects <CR>"),
-        dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
-        dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
-        dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
-        dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
+        button("f", "  Find file", ":Telescope find_files <CR>"),
+        button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+        button("p", "  Find project", ":Telescope projects <CR>"),
+        button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
+        button("t", "  Find text", ":Telescope live_grep <CR>"),
+        button("c", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
+        button("q", "  Quit Neovim", ":qa<CR>"),
       }
       
       dashboard.section.footer.opts.hl = "Type"

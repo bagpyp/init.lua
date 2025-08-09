@@ -8,6 +8,7 @@ return {
       "folke/neodev.nvim",
       "folke/neoconf.nvim",
       { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
+      "saghen/blink.cmp",
     },
     config = function()
       -- Setup neodev for Neovim Lua development
@@ -48,7 +49,8 @@ return {
 
       -- LSP settings
       local lspconfig = require("lspconfig")
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      -- Use blink.cmp capabilities
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       -- Configure diagnostic display
       vim.diagnostic.config({
