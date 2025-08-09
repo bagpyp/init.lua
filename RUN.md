@@ -222,7 +222,7 @@ cd ~/.config/nvim/docs-site && npm start
 ## 🔥 Pro Tips
 
 ### Keyboard Maestro Integration:
-Your Cmd+1-8 shortcuts work best with proper terminal key handling. Consider:
+Your Space+1-8 shortcuts work best with proper terminal key handling. Consider:
 - iTerm2: Preferences → Profiles → Keys → Left Option Key: Meta
 - Terminal: Terminal → Preferences → Profiles → Keyboard
 

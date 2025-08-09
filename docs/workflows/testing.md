@@ -192,7 +192,7 @@ M.configs = {
 }
 ```
 
-Access with `⌘3` to switch between test configurations.
+Access with `Space+3` to switch between test configurations.
 
 ## 🐛 Debugging Tests
 
@@ -200,7 +200,7 @@ Access with `⌘3` to switch between test configurations.
 1. Place cursor on test
 2. Press `<leader>td` or use `F9` to set breakpoint
 3. Test runs in debug mode
-4. Debug UI opens automatically (`⌘4`)
+4. Debug UI opens automatically (`Space+4`)
 
 ### Debug Configuration
 

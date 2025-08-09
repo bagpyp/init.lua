@@ -67,33 +67,33 @@ return {
         },
       })
 
-      -- JetBrains IDE Panels (Cmd+Number)
+      -- JetBrains IDE Panels (Space+Number)
       wk.register({
-        ["<D-1>"] = { "<cmd>Neotree toggle<cr>", "󰙅 File Explorer" },
-        ["<D-2>"] = { "<cmd>Telescope git_status<cr>", " Git Status" },
-        ["<D-3>"] = { "<cmd>lua require('config.run').toggle()<cr>", " Run Configs" },
-        ["<D-4>"] = { "<cmd>lua require('dapui').toggle()<cr>", " Debugger" },
-        ["<D-5>"] = { "<cmd>DBUI<cr>", " Database" },
-        ["<D-6>"] = { "<cmd>lua require('config.docker').toggle()<cr>", "🐳 Docker Services" },
-        ["<D-7>"] = { "<cmd>SymbolsOutline<cr>", " Structure" },
-        ["<D-8>"] = { "<cmd>ToggleTerm<cr>", " Terminal" },
+        ["<leader>1"] = { "<cmd>Neotree toggle<cr>", "📁 File Explorer" },
+        ["<leader>2"] = { "<cmd>Telescope git_status<cr>", "🔀 Git Status" },
+        ["<leader>3"] = { "<cmd>lua require('config.run').toggle()<cr>", "▶️ Run Configs" },
+        ["<leader>4"] = { "<cmd>lua require('dapui').toggle()<cr>", "🐛 Debugger" },
+        ["<leader>5"] = { "<cmd>DBUI<cr>", "💾 Database" },
+        ["<leader>6"] = { "<cmd>lua require('config.docker').toggle()<cr>", "🐳 Docker Services" },
+        ["<leader>7"] = { "<cmd>SymbolsOutline<cr>", "🏗️ Structure" },
+        ["<leader>8"] = { "<cmd>ToggleTerm<cr>", "💻 Terminal" },
       })
 
-      -- Quick Actions (Cmd+Key)
+      -- Quick Actions
       wk.register({
-        ["<D-p>"] = { "<cmd>Telescope find_files<cr>", "Find Files" },
-        ["<D-P>"] = { "<cmd>Telescope commands<cr>", "Command Palette" },
-        ["<S-D-f>"] = { "<cmd>Telescope live_grep<cr>", "Search in Files" },
-        ["<D-b>"] = { "<cmd>Telescope buffers<cr>", "Switch Buffer" },
-        ["<D-g>"] = { "<cmd>lua require('vim-visual-multi').start()<cr>", "Multi-Cursor" },
+        ["<leader>ff"] = { "<cmd>Telescope find_files<cr>", "🔍 Find Files" },
+        ["<leader>fp"] = { "<cmd>Telescope commands<cr>", "🎛️ Command Palette" },
+        ["<leader>fg"] = { "<cmd>Telescope live_grep<cr>", "🔎 Search in Files" },
+        ["<leader>fb"] = { "<cmd>Telescope buffers<cr>", "📋 Switch Buffer" },
+        ["<C-g>"] = { "<cmd>lua require('vim-visual-multi').start()<cr>", "🎯 Multi-Cursor" },
         ["<S-Tab>"] = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
       })
 
       -- Function Keys
       wk.register({
         ["<F5>"] = { "<cmd>lua require('dap').continue()<cr>", "Debug: Continue" },
-        ["<F6>"] = { "<cmd>Move<cr>", "Move File" },
-        ["<S-F6>"] = { vim.lsp.buf.rename, "Rename Symbol" },
+        ["<F6>"] = { "<cmd>Move<cr>", "📦 Move File" },
+        ["<S-F6>"] = { vim.lsp.buf.rename, "🏷️ Rename Symbol" },
         ["<F10>"] = { "<cmd>lua require('dap').step_over()<cr>", "Debug: Step Over" },
         ["<F11>"] = { "<cmd>lua require('dap').step_into()<cr>", "Debug: Step Into" },
         ["<S-F11>"] = { "<cmd>lua require('dap').step_out()<cr>", "Debug: Step Out" },

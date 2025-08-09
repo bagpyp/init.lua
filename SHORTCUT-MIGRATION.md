@@ -33,7 +33,7 @@ All docs have been updated to reflect the new shortcuts:
 
 ### ✅ Updated Files:
 - **README.md** - Main project documentation
-- **CLAUDE.md** - AI assistant instructions  
+- **PROJECT.md** - Project context and documentation  
 - **RUN.md** - Quick reference guide
 - **docs/keymap-cheatsheet.md** - Complete shortcut reference
 - **docs/overview.md** - Architecture overview

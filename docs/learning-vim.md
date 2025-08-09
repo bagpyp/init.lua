@@ -137,9 +137,9 @@ console.log("delete this text");
 ### Combining with JetBrains Features
 
 Your JetBrains muscle memory still works:
-- `⌘P` - Find files (still works!)
-- `⇧F6` - Rename (enhanced with Vim selection)
-- `⌘1-8` - Panels (unchanged)
+- `Space+ff` - Find files (JetBrains-style!)
+- `Shift+F6` - Rename (enhanced with Vim selection)
+- `Space+1-8` - Panels (JetBrains-style)
 - `F5-F11` - Debugging (unchanged)
 
 ### Vim Superpowers
@@ -249,11 +249,11 @@ Add these to your config for JetBrains-like behavior:
 -- Select all
 vim.keymap.set("n", "<C-a>", "ggVG")
 
--- Save with Cmd+S
-vim.keymap.set("n", "<D-s>", ":w<CR>")
+-- Save with Ctrl+S
+vim.keymap.set("n", "<C-s>", ":w<CR>")
 
 -- Duplicate line
-vim.keymap.set("n", "<D-d>", "yyp")
+vim.keymap.set("n", "<C-d>", "yyp")
 ```
 
 ### Useful Plugins for Beginners

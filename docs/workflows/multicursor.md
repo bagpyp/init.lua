@@ -14,21 +14,21 @@ Multi-cursor editing allows you to edit multiple locations simultaneously, just 
 
 | Action | Key | Description |
 |--------|-----|-------------|
-| Add cursor at word | `⌃G` | Add cursor at next occurrence |
-| Add cursor below | `⌃↓` | Create cursor below |
-| Add cursor above | `⌃↑` | Create cursor above |
-| Skip occurrence | `⌃K` | Skip and find next |
-| Remove cursor | `⌃X` | Remove current cursor |
-| Select all occurrences | `⌃⌥G` | Create cursors at all matches |
+| Add cursor at word | `Ctrl+G` | Add cursor at next occurrence |
+| Add cursor below | `Ctrl+Down` | Create cursor below |
+| Add cursor above | `Ctrl+Up` | Create cursor above |
+| Skip occurrence | `Ctrl+K` | Skip and find next |
+| Remove cursor | `Ctrl+X` | Remove current cursor |
+| Select all occurrences | `Ctrl+Alt+G` | Create cursors at all matches |
 
 ## 🎮 Creating Multiple Cursors
 
-### Method 1: Word-Based Selection (⌃G)
+### Method 1: Word-Based Selection (Ctrl+G)
 
 Most common - select all instances of a word:
 
 ```javascript
-// Place cursor on 'user' and press ⌃G repeatedly
+// Place cursor on 'user' and press Ctrl+G repeatedly
 const user = getUser();    // ← cursor 1
 if (user.isActive) {       // ← cursor 2
   updateUser(user);        // ← cursor 3
@@ -38,7 +38,7 @@ if (user.isActive) {       // ← cursor 2
 ### Method 2: Column Selection
 
 ```javascript
-// Visual block mode: ⌃V, then move down
+// Visual block mode: Ctrl+V, then move down
 const a = 1;  // ← cursor 1
 const b = 2;  // ← cursor 2
 const c = 3;  // ← cursor 3
@@ -59,7 +59,7 @@ const c = 3;  // ← cursor 3
 
 ### Method 4: Mouse Selection
 ```
-1. Hold ⌥ (Alt)
+1. Hold Alt
 2. Click multiple positions
 3. Each click adds a cursor
 ```
@@ -88,7 +88,7 @@ const a = |1;
 const b = |2;
 const c = |3;
 
-// Press ⌃N to enter cursor mode
+// Press Ctrl+N to enter cursor mode
 // Type different values:
 const a = 10;
 const b = 20;
@@ -97,23 +97,23 @@ const c = 30;
 
 ## 🔄 Selection Expansion
 
-### Expand Selection (⌥↑)
+### Expand Selection (Ctrl+Up)
 
 Progressive expansion:
 ```javascript
 // Cursor on 'name'
 user.name
-     ↓ (⌥↑)
+     ↓ (Ctrl+Up)
 user.name       // Select word
-     ↓ (⌥↑)
+     ↓ (Ctrl+Up)
 user.name       // Select with dot
-     ↓ (⌥↑)
+     ↓ (Ctrl+Up)
 (user.name)     // Select with parens
-     ↓ (⌥↑)
+     ↓ (Ctrl+Up)
 if (user.name)  // Select statement
 ```
 
-### Shrink Selection (⌥↓)
+### Shrink Selection (Ctrl+Down)
 
 Reverse of expansion - progressively shrink selection.
 
@@ -126,7 +126,7 @@ While in multi-cursor mode:
 | Key | Action |
 |-----|--------|
 | `Tab` | Switch between cursors |
-| `⇧Tab` | Switch backwards |
+| `Shift+Tab` | Switch backwards |
 | `n/N` | Next/previous in extend mode |
 | `q` | Remove current cursor |
 | `Q` | Remove all cursors |
@@ -169,7 +169,7 @@ item_3
 
 ### 1. Rename Variables
 ```javascript
-// Select 'oldVar' with ⌃G repeatedly
+// Select 'oldVar' with Ctrl+G repeatedly
 let oldVar = 1;        // cursor
 function use(oldVar) { // cursor
   return oldVar * 2;   // cursor
@@ -180,7 +180,7 @@ function use(oldVar) { // cursor
 
 ### 2. Add Prefixes/Suffixes
 ```css
-/* Select all 'width' with ⌃⌥G */
+/* Select all 'width' with Ctrl+Alt+G */
 width: 100px;    /* cursor */
 width: 200px;    /* cursor */
 width: 300px;    /* cursor */
@@ -193,7 +193,7 @@ max-width: 300px;
 
 ### 3. Convert List Format
 ```javascript
-// Visual select all lines, ⌃V
+// Visual select all lines, Ctrl+V
 apple
 banana
 cherry
@@ -266,7 +266,7 @@ vim.g.VM_show_warnings = 1
 
 ```
 Name    Age    City
-John    25     NYC     ← Start ⌃V here
+John    25     NYC     ← Start Ctrl+V here
 Jane    30     LA      ← Drag down
 Bob     35     CHI     ← To here
 
@@ -277,7 +277,7 @@ Bob     35     CHI     ← To here
 
 ```vim
 " Select multiple lines with V
-" Press ⌃N to create cursor at each line
+" Press Ctrl+N to create cursor at each line
 " Edit all lines simultaneously
 ```
 
@@ -285,22 +285,22 @@ Bob     35     CHI     ← To here
 
 ### 1. Quick Rename
 ```
-Word → ⌃G (repeat) → c → type new name
+Word → Ctrl+G (repeat) → c → type new name
 ```
 
 ### 2. Quick Surround
 ```
-Select → ⌃G → S" → Surrounded with quotes
+Select → Ctrl+G → S" → Surrounded with quotes
 ```
 
 ### 3. Quick Delete
 ```
-Pattern → ⌃G → d → All deleted
+Pattern → Ctrl+G → d → All deleted
 ```
 
 ### 4. Quick Comment
 ```
-Lines → ⌃V → gc → All commented
+Lines → Ctrl+V → gc → All commented
 ```
 
 ## 🔄 Integration with Other Features
@@ -320,7 +320,7 @@ Lines → ⌃V → gc → All commented
 ## ⚠️ Limitations
 
 ### When to Use Single Cursor
-- Complex refactoring (use ⇧F6)
+- Complex refactoring (use Shift+F6)
 - Different changes per location
 - When LSP rename is better
 

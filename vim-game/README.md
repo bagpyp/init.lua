@@ -60,7 +60,7 @@ npm test
 npm run build
 ```
 
-## For Future Claude Sessions
+## Development Principles
 
 This framework is designed for long-term development. Key principles:
 

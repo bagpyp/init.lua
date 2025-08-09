@@ -336,7 +336,7 @@ services:
 7. **Theme Customization**: Different visual themes
 8. **Social Features**: Friends, teams, challenges
 
-## For Future Claude Sessions
+## Development Workflow
 
 When continuing work on this project:
 

@@ -12,16 +12,16 @@ This configuration provides JetBrains-style refactoring capabilities through LSP
 
 | Action | Key | JetBrains Equivalent |
 |--------|-----|---------------------|
-| Rename Symbol | `⇧F6` | Shift+F6 (Rename) |
+| Rename Symbol | `Shift+F6` | Shift+F6 (Rename) |
 | Move File | `F6` | F6 (Move) |
 | Extract Method | `M` (visual) | Ctrl+Alt+M |
 | Extract Variable | `<leader>rv` | Ctrl+Alt+V |
-| Inline Variable | `⌘⌥N` | Ctrl+Alt+N |
+| Inline Variable | `<leader>ri` | Ctrl+Alt+N |
 | Extract Function | `<leader>re` | Extract Method |
 
 ## 📝 Rename Refactoring
 
-### Rename Symbol (⇧F6)
+### Rename Symbol (Shift+F6)
 
 The most common refactoring - works across entire project:
 
@@ -31,7 +31,7 @@ const oldName = "value";
 console.log(oldName);
 export { oldName };
 
-// Press ⇧F6, type 'newName'
+// Press Shift+F6, type 'newName'
 // After:
 const newName = "value";
 console.log(newName);
@@ -115,7 +115,7 @@ For larger extractions:
 
 ## 📥 Inline Refactorings
 
-### Inline Variable (⌘⌥N)
+### Inline Variable (<leader>ri)
 
 Remove unnecessary variables:
 
@@ -124,7 +124,7 @@ Remove unnecessary variables:
 const temp = calculateValue();
 return temp;
 
-// Press ⌘⌥N
+// Press <leader>ri
 // After:
 return calculateValue();
 ```
@@ -208,20 +208,20 @@ For class hierarchies:
 
 ## 🎯 Code Actions
 
-### Quick Fixes (⌘.)
+### Quick Fixes (<leader>ca)
 
 Context-aware refactorings:
 
 ```javascript
 // Cursor on undefined variable
-undefinedVar  // Press ⌘.
+undefinedVar  // Press <leader>ca
 // Options:
 // 1. Create variable 'undefinedVar'
 // 2. Import 'undefinedVar'
 // 3. Change to similar name
 
 // Cursor on unused variable
-const unused = 5;  // Press ⌘.
+const unused = 5;  // Press <leader>ca
 // Options:
 // 1. Remove unused variable
 // 2. Prefix with underscore
@@ -382,12 +382,12 @@ Select code → M → Name method → Enter
 
 ### 2. Rename-Move Pattern
 ```
-⇧F6 (rename) → F6 (move file) → Update imports
+Shift+F6 (rename) → F6 (move file) → Update imports
 ```
 
 ### 3. Inline-Extract Pattern
 ```
-Inline complex (⌘⌥N) → Extract simple (<leader>rv)
+Inline complex (<leader>ri) → Extract simple (<leader>rv)
 ```
 
 ## 🚨 Troubleshooting

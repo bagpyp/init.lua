@@ -6,7 +6,7 @@
 
 ## Overview
 
-The debugging setup provides a full-featured debugging experience similar to JetBrains IDEs, using the Debug Adapter Protocol (DAP). Press `⌘4` to toggle the debug UI.
+The debugging setup provides a full-featured debugging experience similar to JetBrains IDEs, using the Debug Adapter Protocol (DAP). Press `Space+4` to toggle the debug UI.
 
 ## 🚀 Quick Start
 
@@ -14,13 +14,13 @@ The debugging setup provides a full-featured debugging experience similar to Jet
 
 | Action | Key | JetBrains Equivalent |
 |--------|-----|---------------------|
-| Toggle Debug UI | `⌘4` | Debug Tool Window |
+| Toggle Debug UI | `Space+4` | Debug Tool Window |
 | Continue/Start | `F5` | Resume Program |
 | Step Over | `F10` | Step Over |
 | Step Into | `F11` | Step Into |
-| Step Out | `⇧F11` | Step Out |
+| Step Out | `Shift+F11` | Step Out |
 | Toggle Breakpoint | `<leader>db` | Toggle Breakpoint |
-| Stop Debugging | `⇧F5` | Stop |
+| Stop Debugging | `Shift+F5` | Stop |
 
 ## 🎯 Setting Breakpoints
 
@@ -57,7 +57,7 @@ The debugging setup provides a full-featured debugging experience similar to Jet
 
 ## 🖥 Debug UI Layout
 
-When you press `⌘4`, the debug UI opens with:
+When you press `Space+4`, the debug UI opens with:
 
 ```
 ┌─────────────────────────────────────────────┐

@@ -31,10 +31,10 @@
 ### Symbol Navigation
 | Key | Action | JetBrains Equivalent |
 |-----|--------|---------------------|
-| `gd` | Go to Definition | Cmd+B |
-| `gr` | Go to References | Cmd+Shift+F7 |
-| `gi` | Go to Implementation | Cmd+Alt+B |
-| `K` | Hover Documentation | Cmd+J |
+| `gd` | Go to Definition | Ctrl+B |
+| `gr` | Go to References | Ctrl+Shift+F7 |
+| `gi` | Go to Implementation | Ctrl+Alt+B |
+| `K` | Hover Documentation | Ctrl+J |
 
 ## 🔧 Refactoring
 

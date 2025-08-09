@@ -1,6 +1,6 @@
-# CLAUDE.md - AI Assistant Instructions
+# Project Context
 
-This file contains instructions and context for AI assistants (like Claude) when working with this Neovim configuration.
+This file contains important context and documentation for this Neovim configuration.
 
 ## Project Overview
 
@@ -213,12 +213,12 @@ npm run dev        # Start development servers
 2. The configuration is optimized for macOS with iTerm2
 3. Uses LazyVim as the base distribution
 4. Node 20.11.0 is required for web components (via .nvmrc)
-5. All JetBrains keybindings use Cmd key (macOS specific)
+5. All JetBrains keybindings use leader key (Space) for panel navigation
 6. **VimGame teaches YOUR bindings, not generic vim**
 
 ## VimGame Development
 
-### For Future Claude Sessions Working on VimGame:
+### Key Development Information:
 
 1. **Read `vim-game/TODO.md`** for current development priorities
 2. **Check `vim-game/specs/ARCHITECTURE.md`** for technical specifications
@@ -227,7 +227,7 @@ npm run dev        # Start development servers
 
 ### Key VimGame Principles:
 - Lessons teach the **exact shortcuts** configured in this repository
-- Scoring prioritizes **JetBrains-style efficiency** (Cmd+1-8, F-keys, etc.)
+- Scoring prioritizes **JetBrains-style efficiency** (Space+1-8, F-keys, etc.)
 - Achievements based on **YOUR workflow patterns**
 - Feedback references **actual keymapping commands** from the config
 
@@ -254,6 +254,6 @@ This repository will grow significantly. Key files for understanding the system:
 2. **`vim-game/lessons/curriculum.yaml`** - Lessons that teach those keybindings  
 3. **`vim-game/TODO.md`** - Current development priorities
 4. **`test/all_passing_tests.lua`** - Comprehensive test validation
-5. **This CLAUDE.md** - Context for AI assistants
+5. **This file** - Project context and documentation
 
 The VimGame system ensures that as keybindings evolve, the learning system stays in sync.
