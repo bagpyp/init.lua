@@ -266,10 +266,14 @@ return {
         map_c_w = false,
       })
 
-      -- Integration with cmp
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-      local cmp = require("cmp")
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+      -- Safe integration with cmp (only if available)
+      local ok_cmp, cmp = pcall(require, "cmp")
+      if ok_cmp then
+        local ok_ap, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+        if ok_ap then
+          cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+        end
+      end
     end,
   },
 
