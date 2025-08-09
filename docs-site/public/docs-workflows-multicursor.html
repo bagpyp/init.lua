@@ -250,7 +250,7 @@
       
   <h2>📚 Documentation</h2>
   <ul>
-    <li><a href="index.html">Home</a></li><li><a href="readme-main.html">🚀 JetBrains-Style Neovim Configuration</a></li><li><a href="testing-guide.html">🧪 Complete Testing Guide</a></li><li><a href="claude.html">CLAUDE.md - AI Assistant Instructions</a></li><li><a href="jetbrains-shortcuts.html">🚀 JetBrains-Style Shortcuts (Space + Number System)</a></li><li><a href="run.html">🚀 RUN.md - How to Use This Neovim Configuration</a></li><li><a href="shortcut-migration.html">🔄 Shortcut Migration Complete!</a></li><li><a href="keymap-cheatsheet.html">🔑 Keymap Cheatsheet</a></li><li><a href="learning-vim.html">🎓 Learning Vim: From JetBrains to Neovim</a></li><li><a href="overview.html">📘 Overview: JetBrains Parity in Neovim</a></li><li><a href="test-explanation.html">✅ Test Suite: Always Passing</a></li><li><a href="docs-workflows-debugging.html">🐛 Debugging Workflow with nvim-dap</a></li><li><a href="docs-workflows-multicursor.html">🎯 Multi-cursor Workflow</a></li><li><a href="docs-workflows-refactoring.html">♻️ Refactoring Workflow</a></li><li><a href="docs-workflows-services.html">🐳 Services & Docker Workflow</a></li><li><a href="docs-workflows-structure.html">🏗 Code Structure & Symbol Navigation</a></li><li><a href="docs-workflows-testing.html">🧪 Testing Workflow with Neotest</a></li><li><a href="test-readme.html">🧪 Test Suite Documentation</a></li><li><a href="vim-game-readme.html">🎮 VimGame - Interactive Neovim Learning Framework</a></li><li><a href="vim-game-todo.html">VimGame Development TODO</a></li><li><a href="vim-game-vimgame-ready.html">🎮 VimGame is Ready! </a></li><li><a href="vim-game-specs-architecture.html">VimGame Architecture Specification</a></li>
+    <li><a href="index.html">Home</a></li><li><a href="readme-main.html">🚀 JetBrains-Style Neovim Configuration</a></li><li><a href="keymap-cheatsheet.html">🔑 Keymap Cheatsheet</a></li><li><a href="docs-workflows-debugging.html">🐛 Debugging Workflow with nvim-dap</a></li><li><a href="docs-workflows-multicursor.html">🎯 Multi-cursor Workflow</a></li><li><a href="docs-workflows-refactoring.html">♻️ Refactoring Workflow</a></li><li><a href="docs-workflows-services.html">🐳 Services & Docker Workflow</a></li><li><a href="docs-workflows-structure.html">🏗 Code Structure & Symbol Navigation</a></li><li><a href="docs-workflows-testing.html">🧪 Testing Workflow with Neotest</a></li><li><a href="test-readme.html">🧪 Test Suite Documentation</a></li><li><a href="vim-game-readme.html">🎮 VimGame - Interactive Neovim Learning Framework</a></li><li><a href="vim-game-specs-architecture.html">VimGame Architecture Specification</a></li>
   </ul>
 
     </nav>
@@ -272,46 +272,46 @@
 </thead>
 <tbody><tr>
 <td>Add cursor at word</td>
-<td><code>⌃G</code></td>
+<td><code>Ctrl+G</code></td>
 <td>Add cursor at next occurrence</td>
 </tr>
 <tr>
 <td>Add cursor below</td>
-<td><code>⌃↓</code></td>
+<td><code>Ctrl+Down</code></td>
 <td>Create cursor below</td>
 </tr>
 <tr>
 <td>Add cursor above</td>
-<td><code>⌃↑</code></td>
+<td><code>Ctrl+Up</code></td>
 <td>Create cursor above</td>
 </tr>
 <tr>
 <td>Skip occurrence</td>
-<td><code>⌃K</code></td>
+<td><code>Ctrl+K</code></td>
 <td>Skip and find next</td>
 </tr>
 <tr>
 <td>Remove cursor</td>
-<td><code>⌃X</code></td>
+<td><code>Ctrl+X</code></td>
 <td>Remove current cursor</td>
 </tr>
 <tr>
 <td>Select all occurrences</td>
-<td><code>⌃⌥G</code></td>
+<td><code>Ctrl+Alt+G</code></td>
 <td>Create cursors at all matches</td>
 </tr>
 </tbody></table>
 <h2>🎮 Creating Multiple Cursors</h2>
-<h3>Method 1: Word-Based Selection (⌃G)</h3>
+<h3>Method 1: Word-Based Selection (Ctrl+G)</h3>
 <p>Most common - select all instances of a word:</p>
-<pre><code class="language-javascript">// Place cursor on &#39;user&#39; and press ⌃G repeatedly
+<pre><code class="language-javascript">// Place cursor on &#39;user&#39; and press Ctrl+G repeatedly
 const user = getUser();    // ← cursor 1
 if (user.isActive) {       // ← cursor 2
   updateUser(user);        // ← cursor 3
 }
 </code></pre>
 <h3>Method 2: Column Selection</h3>
-<pre><code class="language-javascript">// Visual block mode: ⌃V, then move down
+<pre><code class="language-javascript">// Visual block mode: Ctrl+V, then move down
 const a = 1;  // ← cursor 1
 const b = 2;  // ← cursor 2
 const c = 3;  // ← cursor 3
@@ -327,7 +327,7 @@ const c = 3;  // ← cursor 3
 :VMSearch ^
 </code></pre>
 <h3>Method 4: Mouse Selection</h3>
-<pre><code>1. Hold ⌥ (Alt)
+<pre><code>1. Hold Alt
 2. Click multiple positions
 3. Each click adds a cursor
 </code></pre>
@@ -349,27 +349,27 @@ const a = |1;
 const b = |2;
 const c = |3;
 
-// Press ⌃N to enter cursor mode
+// Press Ctrl+N to enter cursor mode
 // Type different values:
 const a = 10;
 const b = 20;
 const c = 30;
 </code></pre>
 <h2>🔄 Selection Expansion</h2>
-<h3>Expand Selection (⌥↑)</h3>
+<h3>Expand Selection (Ctrl+Up)</h3>
 <p>Progressive expansion:</p>
 <pre><code class="language-javascript">// Cursor on &#39;name&#39;
 user.name
-     ↓ (⌥↑)
+     ↓ (Ctrl+Up)
 user.name       // Select word
-     ↓ (⌥↑)
+     ↓ (Ctrl+Up)
 user.name       // Select with dot
-     ↓ (⌥↑)
+     ↓ (Ctrl+Up)
 (user.name)     // Select with parens
-     ↓ (⌥↑)
+     ↓ (Ctrl+Up)
 if (user.name)  // Select statement
 </code></pre>
-<h3>Shrink Selection (⌥↓)</h3>
+<h3>Shrink Selection (Ctrl+Down)</h3>
 <p>Reverse of expansion - progressively shrink selection.</p>
 <h2>🎯 Advanced Multi-cursor</h2>
 <h3>Cursor Navigation</h3>
@@ -386,7 +386,7 @@ if (user.name)  // Select statement
 <td>Switch between cursors</td>
 </tr>
 <tr>
-<td><code>⇧Tab</code></td>
+<td><code>Shift+Tab</code></td>
 <td>Switch backwards</td>
 </tr>
 <tr>
@@ -432,7 +432,7 @@ item_3
 </code></pre>
 <h2>💡 Practical Examples</h2>
 <h3>1. Rename Variables</h3>
-<pre><code class="language-javascript">// Select &#39;oldVar&#39; with ⌃G repeatedly
+<pre><code class="language-javascript">// Select &#39;oldVar&#39; with Ctrl+G repeatedly
 let oldVar = 1;        // cursor
 function use(oldVar) { // cursor
   return oldVar * 2;   // cursor
@@ -441,7 +441,7 @@ function use(oldVar) { // cursor
 // Type &#39;newVar&#39; - changes all
 </code></pre>
 <h3>2. Add Prefixes/Suffixes</h3>
-<pre><code class="language-css">/* Select all &#39;width&#39; with ⌃⌥G */
+<pre><code class="language-css">/* Select all &#39;width&#39; with Ctrl+Alt+G */
 width: 100px;    /* cursor */
 width: 200px;    /* cursor */
 width: 300px;    /* cursor */
@@ -452,7 +452,7 @@ max-width: 200px;
 max-width: 300px;
 </code></pre>
 <h3>3. Convert List Format</h3>
-<pre><code class="language-javascript">// Visual select all lines, ⌃V
+<pre><code class="language-javascript">// Visual select all lines, Ctrl+V
 apple
 banana
 cherry
@@ -514,7 +514,7 @@ vim.g.VM_show_warnings = 1
 <h2>🎨 Visual Multi-cursor</h2>
 <h3>Box/Column Selection</h3>
 <pre><code>Name    Age    City
-John    25     NYC     ← Start ⌃V here
+John    25     NYC     ← Start Ctrl+V here
 Jane    30     LA      ← Drag down
 Bob     35     CHI     ← To here
 
@@ -522,21 +522,21 @@ Bob     35     CHI     ← To here
 </code></pre>
 <h3>Line-wise Operations</h3>
 <pre><code class="language-vim">&quot; Select multiple lines with V
-&quot; Press ⌃N to create cursor at each line
+&quot; Press Ctrl+N to create cursor at each line
 &quot; Edit all lines simultaneously
 </code></pre>
 <h2>🚀 Productivity Tips</h2>
 <h3>1. Quick Rename</h3>
-<pre><code>Word → ⌃G (repeat) → c → type new name
+<pre><code>Word → Ctrl+G (repeat) → c → type new name
 </code></pre>
 <h3>2. Quick Surround</h3>
-<pre><code>Select → ⌃G → S&quot; → Surrounded with quotes
+<pre><code>Select → Ctrl+G → S&quot; → Surrounded with quotes
 </code></pre>
 <h3>3. Quick Delete</h3>
-<pre><code>Pattern → ⌃G → d → All deleted
+<pre><code>Pattern → Ctrl+G → d → All deleted
 </code></pre>
 <h3>4. Quick Comment</h3>
-<pre><code>Lines → ⌃V → gc → All commented
+<pre><code>Lines → Ctrl+V → gc → All commented
 </code></pre>
 <h2>🔄 Integration with Other Features</h2>
 <h3>With Refactoring</h3>
@@ -557,7 +557,7 @@ Bob     35     CHI     ← To here
 <h2>⚠️ Limitations</h2>
 <h3>When to Use Single Cursor</h3>
 <ul>
-<li>Complex refactoring (use ⇧F6)</li>
+<li>Complex refactoring (use Shift+F6)</li>
 <li>Different changes per location</li>
 <li>When LSP rename is better</li>
 </ul>

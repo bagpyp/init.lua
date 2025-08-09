@@ -250,7 +250,7 @@
       
   <h2>📚 Documentation</h2>
   <ul>
-    <li><a href="index.html">Home</a></li><li><a href="readme-main.html">🚀 JetBrains-Style Neovim Configuration</a></li><li><a href="testing-guide.html">🧪 Complete Testing Guide</a></li><li><a href="claude.html">CLAUDE.md - AI Assistant Instructions</a></li><li><a href="jetbrains-shortcuts.html">🚀 JetBrains-Style Shortcuts (Space + Number System)</a></li><li><a href="run.html">🚀 RUN.md - How to Use This Neovim Configuration</a></li><li><a href="shortcut-migration.html">🔄 Shortcut Migration Complete!</a></li><li><a href="keymap-cheatsheet.html">🔑 Keymap Cheatsheet</a></li><li><a href="learning-vim.html">🎓 Learning Vim: From JetBrains to Neovim</a></li><li><a href="overview.html">📘 Overview: JetBrains Parity in Neovim</a></li><li><a href="test-explanation.html">✅ Test Suite: Always Passing</a></li><li><a href="docs-workflows-debugging.html">🐛 Debugging Workflow with nvim-dap</a></li><li><a href="docs-workflows-multicursor.html">🎯 Multi-cursor Workflow</a></li><li><a href="docs-workflows-refactoring.html">♻️ Refactoring Workflow</a></li><li><a href="docs-workflows-services.html">🐳 Services & Docker Workflow</a></li><li><a href="docs-workflows-structure.html">🏗 Code Structure & Symbol Navigation</a></li><li><a href="docs-workflows-testing.html">🧪 Testing Workflow with Neotest</a></li><li><a href="test-readme.html">🧪 Test Suite Documentation</a></li><li><a href="vim-game-readme.html">🎮 VimGame - Interactive Neovim Learning Framework</a></li><li><a href="vim-game-todo.html">VimGame Development TODO</a></li><li><a href="vim-game-vimgame-ready.html">🎮 VimGame is Ready! </a></li><li><a href="vim-game-specs-architecture.html">VimGame Architecture Specification</a></li>
+    <li><a href="index.html">Home</a></li><li><a href="readme-main.html">🚀 JetBrains-Style Neovim Configuration</a></li><li><a href="keymap-cheatsheet.html">🔑 Keymap Cheatsheet</a></li><li><a href="docs-workflows-debugging.html">🐛 Debugging Workflow with nvim-dap</a></li><li><a href="docs-workflows-multicursor.html">🎯 Multi-cursor Workflow</a></li><li><a href="docs-workflows-refactoring.html">♻️ Refactoring Workflow</a></li><li><a href="docs-workflows-services.html">🐳 Services & Docker Workflow</a></li><li><a href="docs-workflows-structure.html">🏗 Code Structure & Symbol Navigation</a></li><li><a href="docs-workflows-testing.html">🧪 Testing Workflow with Neotest</a></li><li><a href="test-readme.html">🧪 Test Suite Documentation</a></li><li><a href="vim-game-readme.html">🎮 VimGame - Interactive Neovim Learning Framework</a></li><li><a href="vim-game-specs-architecture.html">VimGame Architecture Specification</a></li>
   </ul>
 
     </nav>
@@ -271,7 +271,7 @@
 </thead>
 <tbody><tr>
 <td>Rename Symbol</td>
-<td><code>⇧F6</code></td>
+<td><code>Shift+F6</code></td>
 <td>Shift+F6 (Rename)</td>
 </tr>
 <tr>
@@ -291,7 +291,7 @@
 </tr>
 <tr>
 <td>Inline Variable</td>
-<td><code>⌘⌥N</code></td>
+<td><code>&lt;leader&gt;ri</code></td>
 <td>Ctrl+Alt+N</td>
 </tr>
 <tr>
@@ -301,14 +301,14 @@
 </tr>
 </tbody></table>
 <h2>📝 Rename Refactoring</h2>
-<h3>Rename Symbol (⇧F6)</h3>
+<h3>Rename Symbol (Shift+F6)</h3>
 <p>The most common refactoring - works across entire project:</p>
 <pre><code class="language-javascript">// Before: Place cursor on &#39;oldName&#39;
 const oldName = &quot;value&quot;;
 console.log(oldName);
 export { oldName };
 
-// Press ⇧F6, type &#39;newName&#39;
+// Press Shift+F6, type &#39;newName&#39;
 // After:
 const newName = &quot;value&quot;;
 console.log(newName);
@@ -376,13 +376,13 @@ if (isEligible) {
 &lt;leader&gt;rc
 </code></pre>
 <h2>📥 Inline Refactorings</h2>
-<h3>Inline Variable (⌘⌥N)</h3>
+<h3>Inline Variable (<leader>ri)</h3>
 <p>Remove unnecessary variables:</p>
 <pre><code class="language-javascript">// Before: Cursor on &#39;temp&#39;
 const temp = calculateValue();
 return temp;
 
-// Press ⌘⌥N
+// Press &lt;leader&gt;ri
 // After:
 return calculateValue();
 </code></pre>
@@ -446,17 +446,17 @@ async function load() {  →  function load() {
 &lt;leader&gt;rpd
 </code></pre>
 <h2>🎯 Code Actions</h2>
-<h3>Quick Fixes (⌘.)</h3>
+<h3>Quick Fixes (<leader>ca)</h3>
 <p>Context-aware refactorings:</p>
 <pre><code class="language-javascript">// Cursor on undefined variable
-undefinedVar  // Press ⌘.
+undefinedVar  // Press &lt;leader&gt;ca
 // Options:
 // 1. Create variable &#39;undefinedVar&#39;
 // 2. Import &#39;undefinedVar&#39;
 // 3. Change to similar name
 
 // Cursor on unused variable
-const unused = 5;  // Press ⌘.
+const unused = 5;  // Press &lt;leader&gt;ca
 // Options:
 // 1. Remove unused variable
 // 2. Prefix with underscore
@@ -579,10 +579,10 @@ end, { desc = &quot;Extract Component&quot; })
 <pre><code>Select code → M → Name method → Enter
 </code></pre>
 <h3>2. Rename-Move Pattern</h3>
-<pre><code>⇧F6 (rename) → F6 (move file) → Update imports
+<pre><code>Shift+F6 (rename) → F6 (move file) → Update imports
 </code></pre>
 <h3>3. Inline-Extract Pattern</h3>
-<pre><code>Inline complex (⌘⌥N) → Extract simple (&lt;leader&gt;rv)
+<pre><code>Inline complex (&lt;leader&gt;ri) → Extract simple (&lt;leader&gt;rv)
 </code></pre>
 <h2>🚨 Troubleshooting</h2>
 <h3>Refactoring Not Available</h3>

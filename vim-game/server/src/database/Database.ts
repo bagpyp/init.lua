@@ -285,7 +285,7 @@ export class GameDatabase {
 
   public getGameConfig(key: string) {
     const stmt = this.db.prepare('SELECT value FROM game_config WHERE key = ?');
-    const result = stmt.get(key);
+    const result = stmt.get(key) as { value?: string } | undefined;
     return result?.value;
   }
 

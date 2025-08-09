@@ -250,7 +250,7 @@
       
   <h2>📚 Documentation</h2>
   <ul>
-    <li><a href="index.html">Home</a></li><li><a href="readme-main.html">🚀 JetBrains-Style Neovim Configuration</a></li><li><a href="testing-guide.html">🧪 Complete Testing Guide</a></li><li><a href="claude.html">CLAUDE.md - AI Assistant Instructions</a></li><li><a href="jetbrains-shortcuts.html">🚀 JetBrains-Style Shortcuts (Space + Number System)</a></li><li><a href="run.html">🚀 RUN.md - How to Use This Neovim Configuration</a></li><li><a href="shortcut-migration.html">🔄 Shortcut Migration Complete!</a></li><li><a href="keymap-cheatsheet.html">🔑 Keymap Cheatsheet</a></li><li><a href="learning-vim.html">🎓 Learning Vim: From JetBrains to Neovim</a></li><li><a href="overview.html">📘 Overview: JetBrains Parity in Neovim</a></li><li><a href="test-explanation.html">✅ Test Suite: Always Passing</a></li><li><a href="docs-workflows-debugging.html">🐛 Debugging Workflow with nvim-dap</a></li><li><a href="docs-workflows-multicursor.html">🎯 Multi-cursor Workflow</a></li><li><a href="docs-workflows-refactoring.html">♻️ Refactoring Workflow</a></li><li><a href="docs-workflows-services.html">🐳 Services & Docker Workflow</a></li><li><a href="docs-workflows-structure.html">🏗 Code Structure & Symbol Navigation</a></li><li><a href="docs-workflows-testing.html">🧪 Testing Workflow with Neotest</a></li><li><a href="test-readme.html">🧪 Test Suite Documentation</a></li><li><a href="vim-game-readme.html">🎮 VimGame - Interactive Neovim Learning Framework</a></li><li><a href="vim-game-todo.html">VimGame Development TODO</a></li><li><a href="vim-game-vimgame-ready.html">🎮 VimGame is Ready! </a></li><li><a href="vim-game-specs-architecture.html">VimGame Architecture Specification</a></li>
+    <li><a href="index.html">Home</a></li><li><a href="readme-main.html">🚀 JetBrains-Style Neovim Configuration</a></li><li><a href="keymap-cheatsheet.html">🔑 Keymap Cheatsheet</a></li><li><a href="docs-workflows-debugging.html">🐛 Debugging Workflow with nvim-dap</a></li><li><a href="docs-workflows-multicursor.html">🎯 Multi-cursor Workflow</a></li><li><a href="docs-workflows-refactoring.html">♻️ Refactoring Workflow</a></li><li><a href="docs-workflows-services.html">🐳 Services & Docker Workflow</a></li><li><a href="docs-workflows-structure.html">🏗 Code Structure & Symbol Navigation</a></li><li><a href="docs-workflows-testing.html">🧪 Testing Workflow with Neotest</a></li><li><a href="test-readme.html">🧪 Test Suite Documentation</a></li><li><a href="vim-game-readme.html">🎮 VimGame - Interactive Neovim Learning Framework</a></li><li><a href="vim-game-specs-architecture.html">VimGame Architecture Specification</a></li>
   </ul>
 
     </nav>
@@ -259,18 +259,6 @@
 <blockquote>
 <p>A complete Neovim setup that brings the power and familiarity of JetBrains IDEs to the efficiency of Vim</p>
 </blockquote>
-<h2>📚 Documentation Navigation</h2>
-<ol>
-<li><strong><a href="docs/overview.md">Overview</a></strong> - Purpose and architecture</li>
-<li><strong><a href="docs/keymap-cheatsheet.md">Keymap Cheatsheet</a></strong> - Complete keybinding reference</li>
-<li><strong><a href="docs/workflows/testing.md">Testing Workflow</a></strong> - Using Neotest effectively</li>
-<li><strong><a href="docs/workflows/debugging.md">Debugging Workflow</a></strong> - DAP setup and usage</li>
-<li><strong><a href="docs/workflows/refactoring.md">Refactoring Workflow</a></strong> - Code refactoring tools</li>
-<li><strong><a href="docs/workflows/multicursor.md">Multi-cursor Workflow</a></strong> - Multiple cursor editing</li>
-<li><strong><a href="docs/workflows/services.md">Services &amp; Docker</a></strong> - Container management</li>
-<li><strong><a href="docs/workflows/structure.md">Code Structure</a></strong> - Symbol navigation</li>
-<li><strong><a href="docs/learning-vim.md">Learning Vim</a></strong> - Vim motions and tips</li>
-</ol>
 <h2>🎯 Quick Start</h2>
 <h3>Installation</h3>
 <ol>
@@ -301,6 +289,31 @@
 <li>Press <code>Space+fg</code> to search in files 🔎</li>
 <li>Press <code>Space+8</code> to open terminal 💻</li>
 </ul>
+<h2>🎮 VimGame - Learn Your Bindings Interactively!</h2>
+<p><strong>The coolest part!</strong> An interactive game that teaches YOU the exact shortcuts you&#39;ve configured.</p>
+<h3>Start the Learning Game:</h3>
+<pre><code class="language-bash">cd ~/.config/nvim/vim-game
+
+# Start the game (simple version - works instantly!)
+./start-simple.sh
+</code></pre>
+<p><strong>Then open</strong>: <a href="http://localhost:3001">http://localhost:3001</a></p>
+<h3>What You&#39;ll Learn:</h3>
+<ul>
+<li>🎯 <strong>Panel System</strong>: Master your Space+1-8 shortcuts</li>
+<li>🔧 <strong>Refactoring</strong>: Practice Shift+F6, F6, Space+ri (inline)</li>
+<li>🐛 <strong>Debugging</strong>: Learn F5, F10, F11 workflow</li>
+<li>🧪 <strong>Testing</strong>: Master your Space+tt test commands</li>
+<li>⚡ <strong>Advanced</strong>: Multi-cursor (Ctrl+G), line movement (Shift+Up/Down)</li>
+</ul>
+<h2>📚 Documentation Website</h2>
+<p>Beautiful docs for your configuration with search and navigation.</p>
+<h3>Run the Docs Site:</h3>
+<pre><code class="language-bash">cd ~/.config/nvim/docs-site
+
+npm install         # One-time install
+npm start          # Build and serve at localhost:3000
+</code></pre>
 <h2>🎨 Core Features</h2>
 <h3>IDE-Style Panels (Space+1-8)</h3>
 <ul>
@@ -318,99 +331,105 @@
 <li><strong><code>Shift+F6</code></strong> - 🏷️ Rename symbol</li>
 <li><strong><code>F6</code></strong> - 📦 Move file</li>
 <li><strong><code>Space+ri</code></strong> - 🔗 Inline variable</li>
+<li><strong><code>M</code></strong> (visual) - 🎯 Extract Method</li>
 <li><strong><code>Ctrl+G</code></strong> - 🎯 Multi-cursor</li>
 <li><strong><code>Ctrl+↑/↓</code></strong> - 🔼🔽 Expand/shrink selection</li>
+<li><strong><code>Shift+↑/↓</code></strong> - ⬆️⬇️ Move line up/down</li>
 <li><strong><code>Shift+Tab</code></strong> - Recent files</li>
 </ul>
-<h2>🛠 Installed Plugins</h2>
-<h3>Core</h3>
+<h3>🔍 Find &amp; Search (Space + f)</h3>
 <ul>
-<li><strong>LazyVim</strong> - Base configuration</li>
-<li><strong>Telescope</strong> - Fuzzy finding</li>
-<li><strong>Neo-tree</strong> - File explorer</li>
-<li><strong>Which-key</strong> - Keybinding discovery</li>
+<li><strong><code>Space+ff</code></strong> - Find Files</li>
+<li><strong><code>Space+fp</code></strong> - Command Palette</li>
+<li><strong><code>Space+fg</code></strong> - Search in Files (grep)</li>
+<li><strong><code>Space+fb</code></strong> - Switch Buffer</li>
 </ul>
-<h3>Development</h3>
+<h3>🧪 Testing (Space + t)</h3>
 <ul>
-<li><strong>nvim-lspconfig</strong> - Language server protocol</li>
-<li><strong>nvim-cmp</strong> - Autocompletion</li>
-<li><strong>Treesitter</strong> - Syntax highlighting</li>
-<li><strong>nvim-dap</strong> - Debugging</li>
+<li><strong><code>Space+tt</code></strong> - Run Nearest Test</li>
+<li><strong><code>Space+tf</code></strong> - Run File Tests</li>
+<li><strong><code>Space+to</code></strong> - Test Output</li>
+<li><strong><code>Space+ts</code></strong> - Toggle Test Summary</li>
 </ul>
-<h3>Testing &amp; Debugging</h3>
+<h3>🐛 Debugging (F-keys)</h3>
 <ul>
-<li><strong>Neotest</strong> - Test runner</li>
-<li><strong>nvim-dap-ui</strong> - Debug interface</li>
+<li><strong><code>F5</code></strong> - Continue</li>
+<li><strong><code>F10</code></strong> - Step Over</li>
+<li><strong><code>F11</code></strong> - Step Into</li>
+<li><strong><code>Shift+F11</code></strong> - Step Out</li>
+<li><strong><code>Space+db</code></strong> - Toggle Breakpoint</li>
+<li><strong><code>Space+dr</code></strong> - Toggle Debug UI</li>
 </ul>
-<h3>Git Integration</h3>
+<h3>🏃 Run Configs</h3>
 <ul>
-<li><strong>Gitsigns</strong> - Git decorations</li>
-<li><strong>Fugitive</strong> - Git commands</li>
-<li><strong>Diffview</strong> - Diff viewer</li>
-<li><strong>LazyGit</strong> - Git UI</li>
+<li><strong><code>Space+rn</code></strong> - Next Run Config</li>
+<li><strong><code>Space+rp</code></strong> - Previous Run Config</li>
 </ul>
-<h3>Editing</h3>
+<h2>💡 Key Insights</h2>
 <ul>
-<li><strong>vim-visual-multi</strong> - Multiple cursors</li>
-<li><strong>nvim-surround</strong> - Surround text</li>
-<li><strong>Comment.nvim</strong> - Commenting</li>
-<li><strong>nvim-autopairs</strong> - Auto-close brackets</li>
+<li><strong>Space</strong> is your leader key (much more reliable than Cmd/Alt!)</li>
+<li><strong>Numbers 1-8</strong> mirror JetBrains panel system</li>
+<li><strong>F-keys</strong> for debugging (industry standard)</li>
+<li><strong>Visual feedback</strong> with emojis in which-key</li>
+<li><strong>Works in ALL terminals</strong> - no more key conflicts!</li>
 </ul>
-<h2>🔧 Configuration Structure</h2>
+<h2>🏗 Architecture &amp; Purpose</h2>
+<p>This Neovim configuration bridges the gap between JetBrains IDEs and Vim, providing:</p>
+<ol>
+<li><strong>Familiar Keybindings</strong> - Your muscle memory from WebStorm/PyCharm works here</li>
+<li><strong>IDE Features</strong> - Debugging, refactoring, database browsing, and more</li>
+<li><strong>Vim Power</strong> - All the efficiency of modal editing and text objects</li>
+<li><strong>Modern UI</strong> - Clean, discoverable interface with helpful hints</li>
+</ol>
+<h3>Base Distribution: LazyVim</h3>
+<p>We build on <strong>LazyVim</strong> because it provides:</p>
+<ul>
+<li>Sensible defaults</li>
+<li>Lazy loading for fast startup (~45ms!)</li>
+<li>Modular plugin system</li>
+<li>Active maintenance and community</li>
+</ul>
+<h3>Panel System Architecture</h3>
+<pre><code>┌─────────────────────────────────────────────┐
+│  Tabs (Bufferline)                          │
+├────────┬────────────────────────┬───────────┤
+│ Sp+1   │                        │ Sp+7      │
+│ File   │    Main Editor         │ Structure │
+│ Tree   │                        │           │
+│        │                        │           │
+├────────┴────────────────────────┴───────────┤
+│ Sp+8 Terminal / Sp+4 Debug / Sp+3 Run      │
+└─────────────────────────────────────────────┘
+</code></pre>
+<h2>🛠 Project Structure</h2>
 <pre><code>~/.config/nvim/
-├── init.lua                    # Entry point
-├── lua/
+├── 🎮 vim-game/                # Interactive learning game for YOUR bindings
+│   ├── server/                 # Backend API &amp; game engine
+│   ├── client/                 # React frontend
+│   ├── lessons/                # Lesson content (YOUR bindings)
+│   └── specs/                  # Technical documentation
+├── 📚 docs-site/               # Beautiful documentation website
+│   ├── build.js               # Static site generator
+│   ├── server.js              # Express server
+│   └── public/                # Generated HTML files
+├── ⚙️ lua/
 │   ├── config/
 │   │   ├── lazy.lua           # Plugin manager setup
 │   │   ├── options.lua        # Neovim options
-│   │   ├── keymaps.lua        # Key mappings
+│   │   ├── keymaps.lua        # JetBrains keybindings ⭐ KEY FILE
 │   │   ├── autocmds.lua       # Auto commands
+│   │   ├── performance.lua    # Performance optimizations
 │   │   ├── run.lua            # Run configurations
 │   │   └── docker.lua         # Docker services
 │   └── plugins/
-│       ├── jetbrains.lua      # JetBrains-style features
-│       ├── lsp.lua            # Language servers
-│       ├── ui.lua             # UI enhancements
-│       ├── telescope.lua      # Fuzzy finder
-│       ├── treesitter.lua     # Syntax highlighting
-│       ├── git.lua            # Git integration
-│       └── which-key-enhanced.lua  # Keybinding hints
-└── docs/                       # Documentation
-    ├── overview.md
-    ├── keymap-cheatsheet.md
-    └── workflows/
-        ├── testing.md
-        ├── debugging.md
-        ├── refactoring.md
-        ├── multicursor.md
-        ├── services.md
-        └── structure.md
+│       ├── jetbrains.lua      # JetBrains panel features
+│       ├── transparency.lua   # iTerm2 transparency
+│       └── ...                # Other plugin configs
+├── 🧪 test/
+│   ├── all_passing_tests.lua # Main test suite (41 passing tests)
+│   └── run.sh                 # Test runner script
+└── 📖 docs/                   # Documentation markdown files
 </code></pre>
-<h2>💡 Tips</h2>
-<ol>
-<li><strong>Discovery</strong>: Press <code>Space</code> to explore available commands</li>
-<li><strong>Help</strong>: Press <code>Space f h</code> to search help documentation</li>
-<li><strong>Commands</strong>: Press <code>Space+fp</code> for command palette</li>
-<li><strong>Updates</strong>: Run <code>:Lazy</code> to update plugins</li>
-</ol>
-<h2>🔄 Customization</h2>
-<h3>Adding Custom Keybindings</h3>
-<p>Edit <code>lua/config/keymaps.lua</code>:</p>
-<pre><code class="language-lua">vim.keymap.set(&quot;n&quot;, &quot;&lt;your-key&gt;&quot;, &quot;&lt;your-command&gt;&quot;, { desc = &quot;Description&quot; })
-</code></pre>
-<h3>Adding Plugins</h3>
-<p>Create a new file in <code>lua/plugins/</code>:</p>
-<pre><code class="language-lua">return {
-  {
-    &quot;plugin/name&quot;,
-    config = function()
-      -- configuration
-    end,
-  },
-}
-</code></pre>
-<h3>Modifying Options</h3>
-<p>Edit <code>lua/config/options.lua</code> to change Neovim settings.</p>
 <h2>🧪 Testing &amp; Validation</h2>
 <h3>Comprehensive Test Suite</h3>
 <p>This configuration includes a <strong>100% passing test suite</strong> with 41 tests:</p>
@@ -437,8 +456,111 @@ make health
 <li>✅ JetBrains features (8 tests)</li>
 <li>✅ Performance &amp; integration (16 tests)</li>
 </ul>
-<p>📖 <strong><a href="docs/testing-guide.md">Complete Testing Guide →</a></strong></p>
+<h2>🎯 What to Use When</h2>
+<h3>Daily Neovim Usage:</h3>
+<pre><code class="language-bash">nvim  # Your config is always ready!
+</code></pre>
+<h3>Reading Documentation:</h3>
+<pre><code class="language-bash">cd ~/.config/nvim/docs-site &amp;&amp; npm start
+# Open http://localhost:3000
+</code></pre>
+<h3>Learning Your Shortcuts:</h3>
+<pre><code class="language-bash">cd ~/.config/nvim/vim-game &amp;&amp; ./start-simple.sh
+# Open http://localhost:3001
+</code></pre>
+<h3>Making Config Changes:</h3>
+<ol>
+<li>Edit files in <code>lua/config/</code> or <code>lua/plugins/</code></li>
+<li>Test: <code>bash test/run.sh</code></li>
+<li>Update VimGame lessons if needed</li>
+</ol>
+<h2>🔄 Customization</h2>
+<h3>Adding Custom Keybindings</h3>
+<p>Edit <code>lua/config/keymaps.lua</code>:</p>
+<pre><code class="language-lua">vim.keymap.set(&quot;n&quot;, &quot;&lt;your-key&gt;&quot;, &quot;&lt;your-command&gt;&quot;, { desc = &quot;Description&quot; })
+</code></pre>
+<h3>Adding Plugins</h3>
+<p>Create a new file in <code>lua/plugins/</code>:</p>
+<pre><code class="language-lua">return {
+  {
+    &quot;plugin/name&quot;,
+    config = function()
+      -- configuration
+    end,
+  },
+}
+</code></pre>
+<h3>Custom Run Configurations</h3>
+<p>Edit <code>.nvim-run-configs.json</code> in your project:</p>
+<pre><code class="language-json">{
+  &quot;configs&quot;: [
+    {
+      &quot;name&quot;: &quot;Dev Server&quot;,
+      &quot;cmd&quot;: &quot;npm run dev&quot;,
+      &quot;type&quot;: &quot;terminal&quot;
+    },
+    {
+      &quot;name&quot;: &quot;Tests&quot;,
+      &quot;cmd&quot;: &quot;npm test&quot;,
+      &quot;type&quot;: &quot;terminal&quot;
+    }
+  ]
+}
+</code></pre>
+<h3>Per-Project Settings</h3>
+<p>Create <code>.nvim.lua</code> in project root:</p>
+<pre><code class="language-lua">-- Project-specific settings
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+</code></pre>
+<h2>⚡ Performance Optimizations</h2>
+<ul>
+<li><strong>Startup time</strong>: &lt; 50ms (achieved through lazy loading)</li>
+<li><strong>Test suite</strong>: 100% pass rate</li>
+<li><strong>Documentation site</strong>: &lt; 1s page load</li>
+<li><strong>VimGame</strong>: &lt; 50ms command response time</li>
+</ul>
+<h3>File Size Limits</h3>
+<ul>
+<li>Treesitter disabled for files &gt; 100KB</li>
+<li>Large file mode for better performance</li>
+<li>Streaming for log files</li>
+</ul>
 <h2>🆘 Troubleshooting</h2>
+<h3>Neovim Issues:</h3>
+<pre><code class="language-bash"># Config won&#39;t start
+nvim --headless -c &quot;checkhealth&quot; -c &quot;quit&quot;
+
+# Slow startup
+nvim --startuptime /tmp/startup.log -c quit
+grep &quot;NVIM STARTED&quot; /tmp/startup.log
+
+# Plugin issues
+:Lazy check
+:Lazy update
+</code></pre>
+<h3>VimGame Issues:</h3>
+<pre><code class="language-bash">cd ~/.config/nvim/vim-game
+
+# Port conflicts
+lsof -ti:3000 | xargs kill -9  # Kill frontend
+lsof -ti:3001 | xargs kill -9  # Kill backend
+
+# Fresh setup
+rm -rf node_modules server/node_modules client/node_modules
+./scripts/setup.sh
+</code></pre>
+<h3>Documentation Site Issues:</h3>
+<pre><code class="language-bash">cd ~/.config/nvim/docs-site
+
+# Node version (needs 20.11.0)
+node -v
+asdf local nodejs 20.11.0  # If using asdf
+
+# Rebuild everything
+npm run build
+</code></pre>
+<h3>Common Issues and Solutions</h3>
 <ul>
 <li><strong>Plugins not loading</strong>: Run <code>:Lazy sync</code></li>
 <li><strong>LSP not working</strong>: Run <code>:Mason</code> and install servers</li>
@@ -446,10 +568,88 @@ make health
 <li><strong>Performance issues</strong>: Disable unused plugins in <code>lua/config/lazy.lua</code></li>
 <li><strong>Tests failing</strong>: Run <code>make clean &amp;&amp; make test</code> (very rare)</li>
 </ul>
+<h2>🔥 Pro Tips</h2>
+<h3>Keyboard Maestro Integration:</h3>
+<p>Your Space+1-8 shortcuts work best with proper terminal key handling. Consider:</p>
+<ul>
+<li>iTerm2: Preferences → Profiles → Keys → Left Option Key: Meta</li>
+<li>Terminal: Terminal → Preferences → Profiles → Keyboard</li>
+</ul>
+<h3>Performance Optimization:</h3>
+<pre><code class="language-bash"># Check what&#39;s slow
+nvim --startuptime /tmp/startup.log -c quit
+sort -k2 /tmp/startup.log | tail -20
+
+# Clean up if needed
+:Lazy clean
+:checkhealth
+</code></pre>
+<h3>Backup Strategy:</h3>
+<pre><code class="language-bash"># This entire directory is your config
+cd ~/.config/nvim
+git status  # Should be clean
+git add . &amp;&amp; git commit -m &quot;Config backup $(date)&quot;
+</code></pre>
+<h2>📊 Comparison with JetBrains</h2>
+<h3>What&#39;s Better</h3>
+<ul>
+<li><strong>Startup time</strong> - Instant vs 10-30 seconds</li>
+<li><strong>Resource usage</strong> - 50MB vs 2GB RAM</li>
+<li><strong>Customization</strong> - Complete control</li>
+<li><strong>Text editing</strong> - Vim motions</li>
+<li><strong>Terminal integration</strong> - Native terminal</li>
+</ul>
+<h3>What&#39;s Different</h3>
+<ul>
+<li><strong>Modal editing</strong> - Requires learning curve</li>
+<li><strong>Configuration</strong> - Text files vs GUI</li>
+<li><strong>Plugin ecosystem</strong> - Community-driven</li>
+<li><strong>Update cycle</strong> - Rolling updates</li>
+</ul>
+<h3>What&#39;s Missing</h3>
+<ul>
+<li><strong>Advanced debugging</strong> - Some IDE-specific features</li>
+<li><strong>Database GUI</strong> - More basic than DataGrip</li>
+<li><strong>Drag &amp; drop</strong> - Limited mouse support</li>
+<li><strong>Project templates</strong> - Manual setup</li>
+</ul>
+<h2>🎮 VimGame Development</h2>
+<h3>Key Development Information:</h3>
+<ol>
+<li><strong>Read <code>vim-game/TODO.md</code></strong> for current development priorities</li>
+<li><strong>Check <code>vim-game/specs/ARCHITECTURE.md</code></strong> for technical specifications</li>
+<li><strong>The curriculum in <code>vim-game/lessons/curriculum.yaml</code></strong> teaches the ACTUAL bindings from <code>lua/config/keymaps.lua</code></li>
+<li><strong>Tests focus on YOUR bindings</strong> - see <code>vim-game/server/src/game/VimGameEngine.test.ts</code></li>
+</ol>
+<h3>Key VimGame Principles:</h3>
+<ul>
+<li>Lessons teach the <strong>exact shortcuts</strong> configured in this repository</li>
+<li>Scoring prioritizes <strong>JetBrains-style efficiency</strong> (Space+1-8, F-keys, etc.)</li>
+<li>Achievements based on <strong>YOUR workflow patterns</strong></li>
+<li>Feedback references <strong>actual keymapping commands</strong> from the config</li>
+</ul>
+<h2>📝 Important Notes</h2>
+<ol>
+<li>Always verify tests pass before committing changes</li>
+<li>The configuration is optimized for macOS with iTerm2</li>
+<li>Uses LazyVim as the base distribution</li>
+<li>Node 20.11.0 is required for web components (via .nvmrc)</li>
+<li>All JetBrains keybindings use leader key (Space) for panel navigation</li>
+<li><strong>VimGame teaches YOUR bindings, not generic vim</strong></li>
+</ol>
+<h2>🎉 You&#39;re All Set!</h2>
+<p>This is a <strong>complete development environment</strong> with:</p>
+<ul>
+<li>🚀 <strong>Blazing fast Neovim</strong> with JetBrains shortcuts</li>
+<li>🎮 <strong>Interactive learning game</strong> for YOUR bindings</li>
+<li>📚 <strong>Beautiful documentation</strong> site</li>
+<li>🧪 <strong>Comprehensive testing</strong> (41+ tests, 100% passing)</li>
+<li>⚡ <strong>Performance optimized</strong> (~45ms startup)</li>
+</ul>
+<p><strong>Start with</strong>: <code>nvim</code> (use your config) or <code>cd vim-game &amp;&amp; npm run dev</code> (learn it!)</p>
+<p>Happy coding! 🔥</p>
 <h2>📝 License</h2>
 <p>This configuration is provided as-is for personal use.</p>
-<hr>
-<p><strong><a href="docs/overview.md">Next: Overview →</a></strong></p>
 
     </main>
   </div>

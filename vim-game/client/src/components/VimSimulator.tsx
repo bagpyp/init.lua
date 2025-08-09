@@ -52,7 +52,7 @@ export const VimSimulator: React.FC<VimSimulatorProps> = ({
     const buffer = Array.isArray(initialState.buffer) 
       ? initialState.buffer 
       : typeof initialState.buffer === 'string' 
-        ? initialState.buffer.split('\n')
+        ? (initialState.buffer as string).split('\n')
         : [''];
     
     return {
@@ -63,7 +63,6 @@ export const VimSimulator: React.FC<VimSimulatorProps> = ({
   
   const [state, setState] = useState<VimState>(normalizeInitialState(challenge.initialState));
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
-  const [currentCommand, setCurrentCommand] = useState('');
   const [feedback, setFeedback] = useState<string>('');
   const [score, setScore] = useState(0);
   const [hints, setHints] = useState<string[]>([]);
@@ -82,7 +81,6 @@ export const VimSimulator: React.FC<VimSimulatorProps> = ({
   useEffect(() => {
     setState(normalizeInitialState(challenge.initialState));
     setCommandHistory([]);
-    setCurrentCommand('');
     setFeedback('');
     setScore(0);
     setHints([]);
@@ -324,7 +322,6 @@ export const VimSimulator: React.FC<VimSimulatorProps> = ({
     setState(result.newState);
     setFeedback(result.feedback);
     setScore(prev => prev + result.score);
-    setCurrentCommand('');
     
     onCommandExecuted(result);
 
@@ -377,7 +374,6 @@ export const VimSimulator: React.FC<VimSimulatorProps> = ({
     }
     
     if (command) {
-      setCurrentCommand(command);
       executeCommand(command);
     }
   }, [executeCommand]);

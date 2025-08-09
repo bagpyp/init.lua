@@ -250,7 +250,7 @@
       
   <h2>📚 Documentation</h2>
   <ul>
-    <li><a href="index.html">Home</a></li><li><a href="readme-main.html">🚀 JetBrains-Style Neovim Configuration</a></li><li><a href="testing-guide.html">🧪 Complete Testing Guide</a></li><li><a href="claude.html">CLAUDE.md - AI Assistant Instructions</a></li><li><a href="jetbrains-shortcuts.html">🚀 JetBrains-Style Shortcuts (Space + Number System)</a></li><li><a href="run.html">🚀 RUN.md - How to Use This Neovim Configuration</a></li><li><a href="shortcut-migration.html">🔄 Shortcut Migration Complete!</a></li><li><a href="keymap-cheatsheet.html">🔑 Keymap Cheatsheet</a></li><li><a href="learning-vim.html">🎓 Learning Vim: From JetBrains to Neovim</a></li><li><a href="overview.html">📘 Overview: JetBrains Parity in Neovim</a></li><li><a href="test-explanation.html">✅ Test Suite: Always Passing</a></li><li><a href="docs-workflows-debugging.html">🐛 Debugging Workflow with nvim-dap</a></li><li><a href="docs-workflows-multicursor.html">🎯 Multi-cursor Workflow</a></li><li><a href="docs-workflows-refactoring.html">♻️ Refactoring Workflow</a></li><li><a href="docs-workflows-services.html">🐳 Services & Docker Workflow</a></li><li><a href="docs-workflows-structure.html">🏗 Code Structure & Symbol Navigation</a></li><li><a href="docs-workflows-testing.html">🧪 Testing Workflow with Neotest</a></li><li><a href="test-readme.html">🧪 Test Suite Documentation</a></li><li><a href="vim-game-readme.html">🎮 VimGame - Interactive Neovim Learning Framework</a></li><li><a href="vim-game-todo.html">VimGame Development TODO</a></li><li><a href="vim-game-vimgame-ready.html">🎮 VimGame is Ready! </a></li><li><a href="vim-game-specs-architecture.html">VimGame Architecture Specification</a></li>
+    <li><a href="index.html">Home</a></li><li><a href="readme-main.html">🚀 JetBrains-Style Neovim Configuration</a></li><li><a href="keymap-cheatsheet.html">🔑 Keymap Cheatsheet</a></li><li><a href="docs-workflows-debugging.html">🐛 Debugging Workflow with nvim-dap</a></li><li><a href="docs-workflows-multicursor.html">🎯 Multi-cursor Workflow</a></li><li><a href="docs-workflows-refactoring.html">♻️ Refactoring Workflow</a></li><li><a href="docs-workflows-services.html">🐳 Services & Docker Workflow</a></li><li><a href="docs-workflows-structure.html">🏗 Code Structure & Symbol Navigation</a></li><li><a href="docs-workflows-testing.html">🧪 Testing Workflow with Neotest</a></li><li><a href="test-readme.html">🧪 Test Suite Documentation</a></li><li><a href="vim-game-readme.html">🎮 VimGame - Interactive Neovim Learning Framework</a></li><li><a href="vim-game-specs-architecture.html">VimGame Architecture Specification</a></li>
   </ul>
 
     </nav>
@@ -259,10 +259,10 @@
 <p><strong><a href="multicursor.md">← Previous: Multi-cursor Workflow</a></strong> | <strong><a href="structure.md">Next: Code Structure →</a></strong></p>
 <hr>
 <h2>Overview</h2>
-<p>The Services panel (<code>⌘6</code>) provides Docker container management similar to JetBrains&#39; Services tab. Monitor, control, and debug containers without leaving Neovim.</p>
+<p>The Services panel (<code>Space+6</code>) provides Docker container management similar to JetBrains&#39; Services tab. Monitor, control, and debug containers without leaving Neovim.</p>
 <h2>🚀 Quick Start</h2>
 <h3>Open Services Panel</h3>
-<p>Press <code>⌘6</code> to toggle the Docker services panel.</p>
+<p>Press <code>Space+6</code> to toggle the Docker services panel.</p>
 <h3>Panel Layout</h3>
 <pre><code>╭─ Docker Services ──────────────────────╮
 │ NAMES          STATUS         PORTS    │
@@ -290,7 +290,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><code>⌘6</code></td>
+<td><code>Space+6</code></td>
 <td>Toggle Panel</td>
 <td>Show/hide services</td>
 </tr>
@@ -465,7 +465,7 @@ Networks:
 </ol>
 <h2>🔧 Database Management</h2>
 <h3>Connect to Database Container</h3>
-<p>Press <code>⌘5</code> for database UI, then:</p>
+<p>Press <code>Space+5</code> for database UI, then:</p>
 <pre><code class="language-vim">&quot; Add connection to container
 :DBUIAddConnection
 
@@ -524,11 +524,11 @@ services:
 </code></pre>
 <h3>Workflow Steps</h3>
 <ol>
-<li><code>⌘6</code> - Open services panel</li>
+<li><code>Space+6</code> - Open services panel</li>
 <li><code>s</code> - Start containers</li>
 <li><code>l</code> - Monitor logs</li>
 <li>Make code changes (auto-reload)</li>
-<li><code>⌘4</code> - Debug if needed</li>
+<li><code>Space+4</code> - Debug if needed</li>
 <li><code>s</code> - Stop when done</li>
 </ol>
 <h2>🔄 Container Orchestration</h2>
@@ -606,7 +606,7 @@ services:
 </code></pre>
 <h2>💡 Tips and Tricks</h2>
 <h3>1. Quick Rebuild</h3>
-<pre><code class="language-bash"># In terminal (⌘8)
+<pre><code class="language-bash"># In terminal (Space+8)
 docker-compose build --no-cache web
 docker-compose up -d web
 </code></pre>
