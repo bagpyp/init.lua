@@ -15,9 +15,7 @@ This configuration provides JetBrains-style refactoring capabilities through LSP
 | Rename Symbol | `Shift+F6` | Shift+F6 (Rename) |
 | Move File | `F6` | F6 (Move) |
 | Extract Method | `M` (visual) | Ctrl+Alt+M |
-| Extract Variable | `<leader>rv` | Ctrl+Alt+V |
 | Inline Variable | `<leader>ri` | Ctrl+Alt+N |
-| Extract Function | `<leader>re` | Extract Method |
 
 ## 📝 Rename Refactoring
 
@@ -46,13 +44,10 @@ export { newName };
 
 ### Advanced Rename
 ```vim
-" Rename with preview
+" Rename with LSP
 <leader>rn
 
-" Force rename (skip confirmation)
-<leader>rN
-
-" Rename file and update imports
+" Rename file (using Oil.nvim)
 F6
 ```
 
@@ -86,7 +81,7 @@ function generateEmail(user) {
 
 ### Extract Variable
 
-Select expression and press `<leader>rv`:
+*Note: Extract variable keymap is not configured. Use refactoring plugin commands directly.*
 
 ```javascript
 // Before: Select the expression
@@ -103,15 +98,7 @@ if (isEligible) {
 
 ### Extract to File
 
-For larger extractions:
-
-```vim
-" Extract function to new file
-<leader>rf
-
-" Extract component to file (React/Vue)
-<leader>rc
-```
+*Note: Extract to file keymaps are not configured. Use refactoring plugin commands directly.*
 
 ## 📥 Inline Refactorings
 
@@ -147,16 +134,7 @@ const result = 42;
 
 ### Change Function Signature
 
-```vim
-" Change signature
-<leader>rs
-
-" Interactive mode:
-" 1. Add parameter
-" 2. Remove parameter
-" 3. Reorder parameters
-" 4. Change parameter names
-```
+*Note: Change signature keymaps are not configured. This feature requires manual refactoring.*
 
 Example:
 ```javascript
@@ -175,10 +153,7 @@ function greet(greeting, name) {
 
 ### Convert Refactorings
 
-```vim
-" Convert function declaration
-<leader>rcf
-```
+*Note: Convert refactoring keymaps are not configured.*
 
 Examples:
 ```javascript
@@ -196,15 +171,7 @@ async function load() {  →  function load() {
 
 ### Pull Up / Push Down
 
-For class hierarchies:
-
-```vim
-" Pull member up to parent class
-<leader>rpu
-
-" Push member down to subclasses  
-<leader>rpd
-```
+*Note: Pull up/push down keymaps are not configured. These require manual refactoring.*
 
 ## 🎯 Code Actions
 
@@ -229,16 +196,7 @@ const unused = 5;  // Press <leader>ca
 
 ### Import Management
 
-```vim
-" Organize imports
-<leader>ro
-
-" Add missing imports
-<leader>ra
-
-" Remove unused imports
-<leader>ru
-```
+*Note: Import management keymaps are not configured. Use LSP code actions (`<leader>ca`) for import management.*
 
 ## 🔍 Safe Refactoring
 
@@ -247,11 +205,8 @@ const unused = 5;  // Press <leader>ca
 Before applying refactoring:
 
 ```vim
-" Preview rename
-:RenamePreview
-
-" Preview with Telescope
-<leader>rp
+" LSP rename includes preview by default
+<leader>rn
 ```
 
 Preview window shows:
@@ -281,42 +236,15 @@ Best practice workflow:
 
 ### JavaScript/TypeScript
 
-```vim
-" Convert to template literal
-<leader>rtl
-
-" Convert to optional chaining
-<leader>roc
-
-" Destructure object
-<leader>rdo
-```
+*Note: JavaScript/TypeScript specific refactoring keymaps are not configured. Use LSP code actions (`<leader>ca`) for these transformations.*
 
 ### Python
 
-```vim
-" Extract to method
-<leader>rem
-
-" Convert to f-string
-<leader>rfs
-
-" Add type hints
-<leader>rth
-```
+*Note: Python specific refactoring keymaps are not configured. Use LSP code actions (`<leader>ca`) for Python refactorings.*
 
 ### React/Vue Components
 
-```vim
-" Extract component
-<leader>rxc
-
-" Convert to functional component
-<leader>rxf
-
-" Extract hook
-<leader>rxh
-```
+*Note: React/Vue specific refactoring keymaps are not configured. Use LSP code actions or manual refactoring.*
 
 ## 🛡 Undo/Redo Refactoring
 
@@ -325,8 +253,7 @@ Best practice workflow:
 " Standard undo
 u
 
-" Undo entire refactoring session
-<leader>rU
+" Note: Session-based undo is not configured.
 ```
 
 ### Refactoring History

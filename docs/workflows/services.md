@@ -6,12 +6,12 @@
 
 ## Overview
 
-The Services panel (`Space+6`) provides Docker container management similar to JetBrains' Services tab. Monitor, control, and debug containers without leaving Neovim.
+The Services panel (`<leader>6`) provides Docker container management similar to JetBrains' Services tab. Monitor, control, and debug containers without leaving Neovim.
 
 ## 🚀 Quick Start
 
 ### Open Services Panel
-Press `Space+6` to toggle the Docker services panel.
+Press `<leader>6` to toggle the Docker services panel.
 
 ### Panel Layout
 ```
@@ -37,7 +37,7 @@ Press `Space+6` to toggle the Docker services panel.
 
 | Key | Action | Description |
 |-----|--------|-------------|
-| `Space+6` | Toggle Panel | Show/hide services |
+| `<leader>6` | Toggle Panel | Show/hide services |
 | `r` | Refresh | Update container list |
 | `s` | Start/Stop | Toggle container state |
 | `l` | Logs | View container logs |
@@ -182,7 +182,7 @@ services:
 
 ### Connect to Database Container
 
-Press `Space+5` for database UI, then:
+Press `<leader>5` for database UI, then:
 
 ```vim
 " Add connection to container
@@ -258,11 +258,11 @@ services:
 ```
 
 ### Workflow Steps
-1. `Space+6` - Open services panel
+1. `<leader>6` - Open services panel
 2. `s` - Start containers
 3. `l` - Monitor logs
 4. Make code changes (auto-reload)
-5. `Space+4` - Debug if needed
+5. `<leader>4` - Debug if needed
 6. `s` - Stop when done
 
 ## 🔄 Container Orchestration
@@ -361,7 +361,7 @@ services:
 
 ### 1. Quick Rebuild
 ```bash
-# In terminal (Space+8)
+# In terminal (<leader>8)
 docker-compose build --no-cache web
 docker-compose up -d web
 ```

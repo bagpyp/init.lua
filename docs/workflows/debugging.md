@@ -6,7 +6,7 @@
 
 ## Overview
 
-The debugging setup provides a full-featured debugging experience similar to JetBrains IDEs, using the Debug Adapter Protocol (DAP). Press `Space+4` to toggle the debug UI.
+The debugging setup provides a full-featured debugging experience similar to JetBrains IDEs, using the Debug Adapter Protocol (DAP). Press `<leader>4` to toggle the debug UI.
 
 ## 🚀 Quick Start
 
@@ -14,13 +14,12 @@ The debugging setup provides a full-featured debugging experience similar to Jet
 
 | Action | Key | JetBrains Equivalent |
 |--------|-----|---------------------|
-| Toggle Debug UI | `Space+4` | Debug Tool Window |
+| Toggle Debug UI | `<leader>4` | Debug Tool Window |
 | Continue/Start | `F5` | Resume Program |
 | Step Over | `F10` | Step Over |
 | Step Into | `F11` | Step Into |
 | Step Out | `Shift+F11` | Step Out |
 | Toggle Breakpoint | `<leader>db` | Toggle Breakpoint |
-| Stop Debugging | `Shift+F5` | Stop |
 
 ## 🎯 Setting Breakpoints
 
@@ -34,30 +33,19 @@ The debugging setup provides a full-featured debugging experience similar to Jet
 
 ### Conditional Breakpoints
 ```vim
-" Set conditional breakpoint
-<leader>dB
-" Enter condition: i > 10
-
-" Log point (doesn't stop execution)
-<leader>dl
-" Enter message: Value of i: {i}
+" Note: Conditional breakpoints are not yet configured.
+" You can set them manually through DAP commands.
 ```
 
 ### Breakpoint Management
 ```vim
-" List all breakpoints
-<leader>dlb
-
-" Clear all breakpoints
-<leader>dC
-
-" Enable/disable breakpoint
-<leader>de
+" Note: Advanced breakpoint management keymaps are not yet configured.
+" Use :DapBreakpoints command for managing breakpoints.
 ```
 
 ## 🖥 Debug UI Layout
 
-When you press `Space+4`, the debug UI opens with:
+When you press `<leader>4`, the debug UI opens with:
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -108,11 +96,8 @@ When you press `Space+4`, the debug UI opens with:
 
 #### Debug Current Test
 ```vim
-" Debug test under cursor
-<leader>td
-
-" Debug all tests in file
-<leader>tdf
+" Note: Test debugging integration is not yet configured.
+" You can debug tests using the standard DAP commands.
 ```
 
 ### Python
@@ -170,11 +155,8 @@ When you press `Space+4`, the debug UI opens with:
 " Hover evaluation
 K  " While debugging, shows value
 
-" Evaluate selection
-<leader>de  " In visual mode
-
-" Add to watch
-<leader>dw
+" Note: Watch expressions and evaluate selection keymaps are not configured.
+" Use DAP commands for these features.
 ```
 
 ## 🔍 Variable Inspection
@@ -229,27 +211,23 @@ While debugging, hover over any variable to see its value:
 ### Multi-threaded Debugging
 
 ```vim
-" Switch thread
-<leader>dt
-
 " View all threads
 :DapThreads
 
-" Pause all threads
-<leader>dP
+" Note: Thread switching keymaps are not configured.
+" Use DAP commands for thread management.
 ```
 
 ### Exception Handling
 
 ```vim
-" Break on exceptions
-<leader>dE
-
 " Configure exception breakpoints
 :DapExceptions
 " - Caught exceptions
 " - Uncaught exceptions
 " - User unhandled exceptions
+
+" Note: Exception breakpoint keymaps are not configured.
 ```
 
 ## 📝 Debug Configurations
@@ -285,14 +263,8 @@ Create `.vscode/launch.json` (compatible with VSCode):
 
 ### Select Configuration
 ```vim
-" List and select debug configuration
-<leader>dc
-
-" Run last configuration
-<leader>dl
-
-" Edit configurations
-<leader>dE
+" Note: Debug configuration selection keymaps are not configured.
+" Use :DapConfigurations command to manage configurations.
 ```
 
 ## 🎯 Debugging Strategies
@@ -315,11 +287,8 @@ if (user.role === 'admin') {
 
 ### 3. Time Travel Debugging
 ```vim
-" Step backwards (if supported)
-<leader>dB
-
-" Reverse continue
-<leader>dR
+" Note: Time travel debugging keymaps are not configured.
+" This feature requires specific DAP adapter support.
 ```
 
 ## 💡 Tips and Tricks

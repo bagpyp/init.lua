@@ -92,31 +92,32 @@ npm start          # Build and serve at localhost:3000
 - **`Ctrl+G`** - 🎯 Multi-cursor
 - **`Ctrl+↑/↓`** - 🔼🔽 Expand/shrink selection
 - **`Shift+↑/↓`** - ⬆️⬇️ Move line up/down
-- **`Shift+Tab`** - Recent files
+- **`<leader>fr`** - Recent files
 
-### 🔍 Find & Search (Space + f)
-- **`Space+ff`** - Find Files
-- **`Space+fp`** - Command Palette
-- **`Space+fg`** - Search in Files (grep)
-- **`Space+fb`** - Switch Buffer
+### 🔍 Find & Search (<leader> + f)
+- **`<leader>ff`** - Find Files
+- **`<leader>fp`** - Projects
+- **`<leader>fg`** - Search in Files (grep)
+- **`<leader>fb`** - Switch Buffer
+- **`<leader>fw`** - Search Word Under Cursor
 
-### 🧪 Testing (Space + t)
-- **`Space+tt`** - Run Nearest Test
-- **`Space+tf`** - Run File Tests
-- **`Space+to`** - Test Output
-- **`Space+ts`** - Toggle Test Summary
+### 🧪 Testing (<leader> + t)
+- **`<leader>tt`** - Run Nearest Test
+- **`<leader>tf`** - Run File Tests
+- **`<leader>to`** - Test Output
+- **`<leader>ts`** - Toggle Test Summary
 
 ### 🐛 Debugging (F-keys)
 - **`F5`** - Continue
 - **`F10`** - Step Over
 - **`F11`** - Step Into
 - **`Shift+F11`** - Step Out
-- **`Space+db`** - Toggle Breakpoint
-- **`Space+dr`** - Toggle Debug UI
+- **`<leader>db`** - Toggle Breakpoint
+- **`<leader>dr`** - Toggle Debug UI
 
 ### 🏃 Run Configs
-- **`Space+rn`** - Next Run Config
-- **`Space+rp`** - Previous Run Config
+- **`<leader>rn`** - Next Run Config
+- **`<leader>rp`** - Previous Run Config
 
 ## 💡 Key Insights
 

@@ -15,11 +15,8 @@ Multi-cursor editing allows you to edit multiple locations simultaneously, just 
 | Action | Key | Description |
 |--------|-----|-------------|
 | Add cursor at word | `Ctrl+G` | Add cursor at next occurrence |
-| Add cursor below | `Ctrl+Down` | Create cursor below |
-| Add cursor above | `Ctrl+Up` | Create cursor above |
-| Skip occurrence | `Ctrl+K` | Skip and find next |
-| Remove cursor | `Ctrl+X` | Remove current cursor |
-| Select all occurrences | `Ctrl+Alt+G` | Create cursors at all matches |
+| Expand Selection | `Ctrl+Up` | Expand current selection |
+| Shrink Selection | `Ctrl+Down` | Shrink current selection |
 
 ## 🎮 Creating Multiple Cursors
 
@@ -57,12 +54,8 @@ const c = 3;  // ← cursor 3
 :VMSearch ^
 ```
 
-### Method 4: Mouse Selection
-```
-1. Hold Alt
-2. Click multiple positions
-3. Each click adds a cursor
-```
+### Method 4: Advanced Multi-cursor
+*Note: Additional multi-cursor features like skip occurrence, remove cursor, and select all occurrences require manual configuration of vim-visual-multi.*
 
 ## 📝 Editing with Multiple Cursors
 

@@ -16,18 +16,12 @@ Neotest provides a unified interface for running tests across multiple languages
 |--------|------------|-------------|
 | Run nearest test | `<leader>tt` | Runs the test under cursor |
 | Run file | `<leader>tf` | Runs all tests in current file |
-| Debug test | `<leader>td` | Debug test under cursor |
-| Stop test | `<leader>ts` | Stop running tests |
 | Show output | `<leader>to` | Display test output |
-| Toggle summary | `<leader>ti` | Show/hide test summary panel |
+| Toggle summary | `<leader>ts` | Show/hide test summary panel |
 
 ### Test Navigation
 
-| Action | Keybinding | Description |
-|--------|------------|-------------|
-| Next failed | `]f` | Jump to next failed test |
-| Previous failed | `[f` | Jump to previous failed test |
-| Go to test | `gt` | Jump between test and implementation |
+*Note: Test navigation keybindings are currently not configured. You can navigate tests using the test summary panel.*
 
 ## 📊 Test Summary Panel
 
@@ -192,7 +186,7 @@ M.configs = {
 }
 ```
 
-Access with `Space+3` to switch between test configurations.
+Access with `<leader>3` to switch between test configurations.
 
 ## 🐛 Debugging Tests
 
@@ -200,7 +194,7 @@ Access with `Space+3` to switch between test configurations.
 1. Place cursor on test
 2. Press `<leader>td` or use `F9` to set breakpoint
 3. Test runs in debug mode
-4. Debug UI opens automatically (`Space+4`)
+4. Debug UI opens automatically (`<leader>4`)
 
 ### Debug Configuration
 

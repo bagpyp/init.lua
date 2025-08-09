@@ -6,12 +6,12 @@
 
 ## Overview
 
-The Structure panel (`Space+7`) provides a bird's-eye view of your code, similar to JetBrains' Structure tool window. Navigate symbols, methods, and classes with ease.
+The Structure panel (`<leader>7`) provides a bird's-eye view of your code, similar to JetBrains' Structure tool window. Navigate symbols, methods, and classes with ease.
 
 ## 🚀 Quick Start
 
 ### Open Structure Panel
-Press `Space+7` to toggle the symbols outline.
+Press `<leader>7` to toggle the symbols outline.
 
 ### Panel Layout
 ```
@@ -331,22 +331,22 @@ require("symbols-outline").setup({
 
 ### 1. Quick Jump Pattern
 ```
-Space+7 → / → search → Enter
+<leader>7 → / → search → Enter
 ```
 
 ### 2. Split View
 ```
-Space+7 → navigate → p (preview)
+<leader>7 → navigate → p (preview)
 ```
 
 ### 3. Refactor Flow
 ```
-Space+7 → find symbol → r (rename) → Shift+F6
+<leader>7 → find symbol → r (rename) → Shift+F6
 ```
 
 ### 4. Code Review
 ```
-Space+7 for overview → Check structure → Navigate issues
+<leader>7 for overview → Check structure → Navigate issues
 ```
 
 ## ⚙️ Configuration
