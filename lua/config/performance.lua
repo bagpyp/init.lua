@@ -77,5 +77,6 @@ vim.opt.foldenable = false
 vim.opt.shada = "!,'300,<50,s10,h"
 
 -- Reduce startup time by lazy loading filetype
-vim.g.did_load_filetypes = 0
+-- DISABLED: This breaks syntax highlighting!
+-- vim.g.did_load_filetypes = 0
 vim.g.do_filetype_lua = 1
