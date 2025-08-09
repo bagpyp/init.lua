@@ -51,8 +51,20 @@ return {
   {
     "akinsho/bufferline.nvim",
     version = "*",
-    dependencies = "nvim-tree/nvim-web-devicons",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
+      -- Patch get_icon to handle nil values
+      local ok, devicons = pcall(require, "nvim-web-devicons")
+      if ok then
+        local original_get_icon = devicons.get_icon
+        devicons.get_icon = function(name, ext, opts)
+          if not name then
+            return "", ""
+          end
+          return original_get_icon(name, ext, opts)
+        end
+      end
+      
       require("bufferline").setup({
         options = {
           mode = "buffers",
@@ -106,6 +118,21 @@ return {
             reveal = { "close" }
           },
           sort_by = "insert_after_current",
+          get_element_icon = function(element)
+            -- Ensure we have a valid filename before trying to get icon
+            local icon, hl = "", ""
+            if element.path and element.path ~= "" then
+              local ok_icon, devicons = pcall(require, "nvim-web-devicons")
+              if ok_icon then
+                local fname = vim.fn.fnamemodify(element.path, ":t")
+                local ext = vim.fn.fnamemodify(element.path, ":e")
+                if fname and fname ~= "" then
+                  icon, hl = devicons.get_icon(fname, ext, { default = true })
+                end
+              end
+            end
+            return icon, hl
+          end,
         }
       })
     end,
@@ -196,6 +223,7 @@ return {
       },
     },
   },
+
 
   -- Dashboard
   {
