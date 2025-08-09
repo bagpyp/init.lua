@@ -46,8 +46,10 @@ return {
         { "<leader>fp", "<cmd>Telescope commands<cr>", desc = "🎛️ Command Palette" },
         { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "🔎 Search in Files" },
         { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "📋 Switch Buffer" },
+        { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
         { "<C-g>", "<cmd>lua require('vim-visual-multi').start()<cr>", desc = "🎯 Multi-Cursor" },
-        { "<S-Tab>", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
+        { "<Tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+        { "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
       })
 
       -- Function Keys

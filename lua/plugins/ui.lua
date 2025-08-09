@@ -50,7 +50,7 @@ return {
   -- Buffer line (tabs)
   {
     "akinsho/bufferline.nvim",
-    enabled = false,
+    enabled = true,
     config = function()
       -- Patch get_icon to handle nil values
       local ok, devicons = pcall(require, "nvim-web-devicons")

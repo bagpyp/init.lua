@@ -48,7 +48,8 @@ map("v", "<S-Up>", ":move '<-2<cr>gv=gv", { desc = "⬆️ Move Selection Up" })
 map("v", "<S-Down>", ":move '>+1<cr>gv=gv", { desc = "⬇️ Move Selection Down" })
 
 -- Recent files and tab management
-map("n", "<S-Tab>", "<cmd>Telescope oldfiles<cr>", { desc = "Recent Files" })
+-- map("n", "<S-Tab>", "<cmd>Telescope oldfiles<cr>", { desc = "Recent Files" }) -- Disabled for buffer navigation
+map("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Recent Files" }) -- Alternative mapping
 map("n", "<leader>tc", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
 
 -- Additional useful mappings (JetBrains style)
